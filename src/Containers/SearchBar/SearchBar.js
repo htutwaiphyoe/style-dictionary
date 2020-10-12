@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import classes from "./SearchBar.module.css";
 class Search extends Component {
     state = {
-        input: "",
+        search: "",
     };
     onInputChange = (e) => {
-        this.setState({ input: e.target.value });
+        this.setState({ search: e.target.value.trim() });
     };
     onFormSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state.input);
+        if (this.state.search) {
+            this.props.onSubmit(this.state.search);
+        }
     };
     render() {
         return (
@@ -20,7 +22,7 @@ class Search extends Component {
                             type="text"
                             placeholder="Search..."
                             onChange={this.onInputChange}
-                            value={this.state.input}
+                            value={this.state.search}
                         />
                         <i className="search icon"></i>
                     </div>

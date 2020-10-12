@@ -3,10 +3,13 @@ import SearchBar from "./SearchBar/SearchBar";
 import "./App.css";
 
 class App extends Component {
+    onSearchSubmit = (searchInput) => {
+        console.log(searchInput);
+    };
     render() {
         return (
             <div className="App">
-                <SearchBar />
+                <SearchBar onSubmit={this.onSearchSubmit} />
             </div>
         );
     }

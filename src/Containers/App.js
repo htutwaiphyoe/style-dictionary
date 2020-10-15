@@ -22,6 +22,7 @@ class App extends Component {
             if (this.state.searchInput !== searchInput) {
                 this.setState({
                     page: 1,
+                    searchImages: [],
                 });
             }
             if (!this.state.search) {
@@ -86,7 +87,10 @@ class App extends Component {
         this.getPhotos();
         window.addEventListener("scroll", () => {
             if (this.state.list) {
-                if (window.scrollY + window.innerHeight >= this.state.list.current.scrollHeight) {
+                if (
+                    window.scrollY + window.innerHeight >=
+                    (this.state.list.current.scrollHeight / 3) * 2
+                ) {
                     if (!this.state.requested && !this.state.search) {
                         this.setState((state, props) => {
                             return {

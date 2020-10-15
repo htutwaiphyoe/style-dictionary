@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import classes from "./SearchBar.module.css";
-class Search extends Component {
+class SearchBar extends React.Component {
     state = {
         search: "",
     };
@@ -15,16 +15,18 @@ class Search extends Component {
     };
     render() {
         return (
-            <div className={`ui segment ${classes.SearchBar}`}>
-                <form onSubmit={this.onFormSubmit} className={`ui form`}>
-                    <div className={`ui icon input ${classes.input}`}>
+            <div className={classes.SearchBar}>
+                <form onSubmit={this.onFormSubmit}>
+                    <div className={`ui icon input ${classes.SearchBox}`}>
+                        <i className="search icon"></i>
                         <input
                             type="text"
-                            placeholder="Search..."
+                            id="search"
+                            placeholder="Search free high-resolution photos"
+                            className={`${classes.SearchInput}`}
                             onChange={this.onInputChange}
                             value={this.state.search}
                         />
-                        <i className="search icon"></i>
                     </div>
                 </form>
             </div>
@@ -32,4 +34,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default SearchBar;

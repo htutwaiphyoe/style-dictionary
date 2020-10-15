@@ -1,7 +1,19 @@
 .SearchBar {
+    flex: 1;
     text-align: center;
 }
+.SearchBox {
+    margin: auto;
+    width: 50rem;
+}
 
-.input {
-    width: 500px;
+.SearchInput {
+    font-family: "Lato" !important;
+    font-size: 16px !important;
+    border: 1px solid #aaa !important;
+    border-radius: 10rem !important;
+    -webkit-border-radius: 10rem !;
+    -moz-border-radius: 10rem !;
+    -ms-border-radius: 10rem !;
+    -o-border-radius: 10rem !;
 }

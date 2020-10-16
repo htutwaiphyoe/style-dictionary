@@ -8,6 +8,7 @@ import NavigationList from "../Components/Header/NavigationList/NavigationList";
 import NavigationItem from "../Components/Header/NavigationList/NavigationItem/NavigationItem";
 import PhotoList from "../Components/PhotoList/PhotoList";
 import Error from "../Components/Error/Error";
+import Spinner from "../Components/Spinner/Spinner";
 class App extends React.Component {
     state = {
         photos: [],
@@ -111,6 +112,9 @@ class App extends React.Component {
     show() {
         if (this.state.error) {
             return <Error />;
+        }
+        if (this.state.requested) {
+            return <Spinner />;
         }
         return <PhotoList photos={this.state.photos} setPhotoList={this.setPhotoList} />;
     }

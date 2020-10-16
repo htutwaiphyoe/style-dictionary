@@ -2,7 +2,7 @@ import React from "react";
 import PhotoCard from "./PhotoCard/PhotoCard";
 import classes from "./PhotoList.module.css";
 import Error from "../Error/Error";
-class ImageList extends React.Component {
+class PhotoList extends React.Component {
     photoListRef = React.createRef();
     componentDidMount() {
         this.props.setPhotoList(this.photoListRef);
@@ -21,4 +21,4 @@ class ImageList extends React.Component {
     }
 }
 
-export default ImageList;
+export default PhotoList;

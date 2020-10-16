@@ -81,22 +81,24 @@ class App extends React.Component {
     componentDidMount() {
         this.loadPhotos();
         window.addEventListener("scroll", () => {
-            if (
-                window.scrollY + window.innerHeight >
-                (this.state.photoList.current.scrollHeight * 3) / 4
-            ) {
-                if (!this.state.requested && !this.state.search) {
-                    let page = this.state.page;
-                    this.setState({
-                        page: page + 1,
-                    });
-                    this.loadPhotos();
-                } else if (!this.state.requested && this.state.search) {
-                    let page = this.state.page;
-                    this.setState({
-                        page: page + 1,
-                    });
-                    this.loadPhotos(this.state.query);
+            if (this.state.photoList) {
+                if (
+                    window.scrollY + window.innerHeight >
+                    (this.state.photoList.current.scrollHeight * 3) / 4
+                ) {
+                    if (!this.state.requested && !this.state.search) {
+                        let page = this.state.page;
+                        this.setState({
+                            page: page + 1,
+                        });
+                        this.loadPhotos();
+                    } else if (!this.state.requested && this.state.search) {
+                        let page = this.state.page;
+                        this.setState({
+                            page: page + 1,
+                        });
+                        this.loadPhotos(this.state.query);
+                    }
                 }
             }
         });

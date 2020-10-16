@@ -73,7 +73,6 @@ class App extends React.Component {
                 requested: false,
             });
         } catch (err) {
-            console.log(err);
             this.setState({
                 error: true,
             });
@@ -87,17 +86,15 @@ class App extends React.Component {
                 (this.state.photoList.current.scrollHeight * 3) / 4
             ) {
                 if (!this.state.requested && !this.state.search) {
-                    this.setState((state, props) => {
-                        return {
-                            page: state.page++,
-                        };
+                    let page = this.state.page;
+                    this.setState({
+                        page: page + 1,
                     });
                     this.loadPhotos();
                 } else if (!this.state.requested && this.state.search) {
-                    this.setState((state, props) => {
-                        return {
-                            page: state.page++,
-                        };
+                    let page = this.state.page;
+                    this.setState({
+                        page: page + 1,
                     });
                     this.loadPhotos(this.state.query);
                 }
@@ -116,8 +113,6 @@ class App extends React.Component {
         return <PhotoList photos={this.state.photos} setPhotoList={this.setPhotoList} />;
     }
     render() {
-        if (this.state.error) {
-        }
         return (
             <div className="App">
                 <Header>

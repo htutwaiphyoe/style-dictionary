@@ -19,6 +19,10 @@
     outline: none;
     background-color: #fff;
     border: 1px solid #ccc;
+    font-size: 1.6rem;
+}
+::placeholder {
+    font-size: 1.6rem;
 }
 .SearchIcon {
     color: #767676;

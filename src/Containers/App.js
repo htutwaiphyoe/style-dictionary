@@ -1,127 +1,93 @@
-import React, { Component } from "react";
+import React from "react";
+import "./App.css";
 import unsplash from "../api/unsplash";
-import SearchBar from "./SearchBar/SearchBar";
-import ImageList from "../Components/ImageList/ImageList";
 import Header from "../Components/Header/Header";
 import Logo from "../Components/Header/Logo/Logo";
-import Auth from "../Components/Header/Auth/Auth";
-import "./App.css";
-
-class App extends Component {
+import SearchBar from "./SearchBar/SearchBar";
+import NavigationList from "../Components/Header/NavigationList/NavigationList";
+import NavigationItem from "../Components/Header/NavigationList/NavigationItem/NavigationItem";
+import PhotoList from "../Components/PhotoList/PhotoList";
+class App extends React.Component {
     state = {
-        images: [],
-        searchImages: [],
-        list: null,
+        photos: [],
         page: 1,
+        photoList: null,
         requested: false,
-        search: false,
-        searchInput: "",
     };
-    onSearchSubmit = async (searchInput) => {
+
+    loadPhotos = async (query) => {
         try {
-            if (this.state.searchInput !== searchInput) {
-                this.setState({
-                    page: 1,
-                    searchImages: [],
-                });
-            }
-            if (!this.state.search) {
-                this.setState({
-                    page: 1,
-                });
-            }
+            let url = "/photos";
+            let params = {
+                page: this.state.page,
+            };
             this.setState({
-                search: true,
-                searchInput,
+                requested: true,
             });
-            this.setState((state, props) => {
-                return {
-                    requested: true,
+            if (query) {
+                url = "/search/photos";
+                params = {
+                    page: this.state.page,
+                    query,
                 };
+            }
+            const response = await unsplash.get(url, {
+                params,
             });
-            const response = await unsplash.get(`/search/photos?page=${this.state.page}`, {
-                params: {
-                    query: searchInput,
-                },
+            console.log(response.data);
+            let photos = [...this.state.photos];
+            photos.forEach((photo) => {
+                response.data.forEach((el, index) => {
+                    if (el.id === photo.id) {
+                        response.data.splice(index, 1);
+                    }
+                });
             });
-            const photos = [...this.state.searchImages];
-
-            this.setState({ searchImages: [...photos, ...response.data.results] });
-            this.setState((state, props) => {
-                return {
-                    requested: false,
-                };
+            console.log(response.data);
+            this.setState({
+                photos: [...photos, ...response.data],
+                requested: false,
             });
-            console.log(this.state.searchImages);
-        } catch (e) {
-            alert(e.message);
-        }
-    };
-    getList = (list) => {
-        this.setState({
-            list,
-        });
-    };
-    getPhotos = async () => {
-        try {
-            this.setState((state, props) => {
-                return {
-                    requested: true,
-                };
-            });
-            const response = await unsplash.get(`/photos?page=${this.state.page}`);
-            const photos = [...this.state.images];
-
-            this.setState({ images: [...photos, ...response.data] });
-
-            this.setState((state, props) => {
-                return {
-                    requested: false,
-                };
-            });
-        } catch (e) {
-            alert(e.message);
+            console.log(this.state.photos);
+        } catch (err) {
+            alert(err.message);
         }
     };
     componentDidMount() {
-        this.getPhotos();
+        this.loadPhotos();
         window.addEventListener("scroll", () => {
-            if (this.state.list) {
-                if (
-                    window.scrollY + window.innerHeight >=
-                    (this.state.list.current.scrollHeight / 3) * 2
-                ) {
-                    if (!this.state.requested && !this.state.search) {
-                        this.setState((state, props) => {
-                            return {
-                                page: state.page++,
-                            };
-                        });
-                        this.getPhotos();
-                    } else if (!this.state.requested && this.state.search) {
-                        console.log(this.state.page);
-                        let page = this.state.page;
-                        this.setState({
-                            page: page + 1,
-                        });
-                        this.onSearchSubmit(this.state.searchInput);
-                    }
+            if (
+                window.scrollY + window.innerHeight >
+                (this.state.photoList.current.scrollHeight * 3) / 4
+            ) {
+                if (!this.state.requested) {
+                    this.setState((state, props) => {
+                        return {
+                            page: state.page++,
+                        };
+                    });
+                    this.loadPhotos();
                 }
             }
         });
     }
+
+    setPhotoList = (list) => {
+        this.setState({ photoList: list });
+    };
     render() {
         return (
             <div className="App">
                 <Header>
                     <Logo />
-                    <SearchBar onSubmit={this.onSearchSubmit} />
-                    <Auth />
+                    <SearchBar />
+                    <NavigationList>
+                        <NavigationItem type="HOME" route="/" />
+                        <NavigationItem type="LOGIN" route="/" />
+                        <NavigationItem type="SIGNUP" route="/" show />
+                    </NavigationList>
                 </Header>
-                <ImageList
-                    images={this.state.search ? this.state.searchImages : this.state.images}
-                    list={this.getList}
-                />
+                <PhotoList photos={this.state.photos} setPhotoList={this.setPhotoList} />
             </div>
         );
     }

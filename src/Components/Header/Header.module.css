@@ -1,8 +1,20 @@
 .Header {
     display: flex;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+    padding: 0.8rem 5rem;
     box-shadow: 0 2px 2px #eee;
-    padding: 0 1.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .Header {
+        padding: 0.8rem 2rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .Header {
+        padding: 0.8rem 1rem;
+    }
 }

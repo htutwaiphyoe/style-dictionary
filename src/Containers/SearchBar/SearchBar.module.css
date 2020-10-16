@@ -1,19 +1,35 @@
 .SearchBar {
-    flex: 1;
+    flex: 2;
+
     text-align: center;
 }
-.SearchBox {
-    margin: auto;
-    width: 50rem;
-}
-
 .SearchInput {
-    font-family: "Lato" !important;
-    font-size: 16px !important;
-    border: 1px solid #aaa !important;
-    border-radius: 10rem !important;
-    -webkit-border-radius: 10rem !;
-    -moz-border-radius: 10rem !;
-    -ms-border-radius: 10rem !;
-    -o-border-radius: 10rem !;
+    width: 80%;
+    padding: 1rem 4rem;
+    border-radius: 10rem;
+    -webkit-border-radius: 10rem;
+    -moz-border-radius: 10rem;
+    -ms-border-radius: 10rem;
+    -o-border-radius: 10rem;
+    margin-left: -3rem;
+    background-color: #eee;
+    border: 1px solid transparent;
+}
+.SearchInput:focus {
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.SearchIcon {
+    color: #767676;
+}
+@media only screen and (max-width: 992px) {
+    .SearchInput {
+        width: 85%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .SearchInput {
+        width: 90%;
+    }
 }

@@ -18,6 +18,7 @@ class App extends React.Component {
         error: false,
         query: "",
         search: false,
+        loading: false,
     };
 
     loadPhotos = async (query) => {
@@ -36,6 +37,7 @@ class App extends React.Component {
                         query,
                         page: 1,
                         photos: [],
+                        loading: true,
                     });
                 }
                 url = "/search/photos";
@@ -46,6 +48,7 @@ class App extends React.Component {
                         query,
                         page: 1,
                         photos: [],
+                        loading: true,
                     });
                 }
 
@@ -72,6 +75,7 @@ class App extends React.Component {
             this.setState({
                 photos: [...photos, ...data],
                 requested: false,
+                loading: false,
             });
         } catch (err) {
             this.setState({
@@ -82,24 +86,22 @@ class App extends React.Component {
     componentDidMount() {
         this.loadPhotos();
         window.addEventListener("scroll", () => {
-            if (this.state.photoList) {
-                if (
-                    window.scrollY + window.innerHeight >
-                    (this.state.photoList.current.scrollHeight * 3) / 4
-                ) {
-                    if (!this.state.requested && !this.state.search) {
-                        let page = this.state.page;
-                        this.setState({
-                            page: page + 1,
-                        });
-                        this.loadPhotos();
-                    } else if (!this.state.requested && this.state.search) {
-                        let page = this.state.page;
-                        this.setState({
-                            page: page + 1,
-                        });
-                        this.loadPhotos(this.state.query);
-                    }
+            if (
+                window.scrollY + window.innerHeight >
+                (this.state.photoList.current.scrollHeight * 3) / 4
+            ) {
+                if (!this.state.requested && !this.state.search) {
+                    let page = this.state.page;
+                    this.setState({
+                        page: page + 1,
+                    });
+                    this.loadPhotos();
+                } else if (!this.state.requested && this.state.search) {
+                    let page = this.state.page;
+                    this.setState({
+                        page: page + 1,
+                    });
+                    this.loadPhotos(this.state.query);
                 }
             }
         });
@@ -113,7 +115,7 @@ class App extends React.Component {
         if (this.state.error) {
             return <Error />;
         }
-        if (this.state.requested) {
+        if (this.state.loading) {
             return <Spinner />;
         }
         return <PhotoList photos={this.state.photos} setPhotoList={this.setPhotoList} />;

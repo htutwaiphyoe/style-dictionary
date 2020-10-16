@@ -1,0 +1,9 @@
+.Error {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 91.2vh;
+    flex-direction: column;
+    font-size: 1.6rem;
+}

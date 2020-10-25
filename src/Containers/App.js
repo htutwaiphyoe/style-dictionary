@@ -1,6 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
 import "./App.css";
-import unsplash from "../api/unsplash";
 import Header from "../Components/Header/Header";
 import Logo from "../Components/Header/Logo/Logo";
 import SearchBar from "./SearchBar/SearchBar";
@@ -9,99 +9,28 @@ import NavigationItem from "../Components/Header/NavigationList/NavigationItem/N
 import PhotoList from "../Components/PhotoList/PhotoList";
 import Error from "../Components/Error/Error";
 import Spinner from "../Components/Spinner/Spinner";
+import * as actionCreators from "../actions/index";
 class App extends React.Component {
     state = {
-        photos: [],
-        page: 1,
         photoList: null,
-        requested: false,
-        error: false,
-        query: "",
-        search: false,
-        loading: false,
     };
 
-    loadPhotos = async (query) => {
-        try {
-            let url = "/photos";
-            let params = {
-                page: this.state.page,
-            };
-            this.setState({
-                requested: true,
-            });
-            if (query) {
-                if (this.state.query !== query && this.state.query !== "") {
-                    this.setState({
-                        search: true,
-                        query,
-                        page: 1,
-                        photos: [],
-                        loading: true,
-                    });
-                }
-                url = "/search/photos";
-
-                if (!this.state.search) {
-                    this.setState({
-                        search: true,
-                        query,
-                        page: 1,
-                        photos: [],
-                        loading: true,
-                    });
-                }
-
-                params = {
-                    page: this.state.page,
-                    query,
-                };
-            }
-            const response = await unsplash.get(url, {
-                params,
-            });
-
-            let photos = [...this.state.photos];
-
-            const data = query ? response.data.results : response.data;
-            photos.forEach((photo) => {
-                data.forEach((el, index) => {
-                    if (el.id === photo.id) {
-                        data.splice(index, 1);
-                    }
-                });
-            });
-
-            this.setState({
-                photos: [...photos, ...data],
-                requested: false,
-                loading: false,
-            });
-        } catch (err) {
-            this.setState({
-                error: true,
-            });
-        }
-    };
     componentDidMount() {
-        this.loadPhotos();
+        this.props.getPhotos(this.props.page);
+
         window.addEventListener("scroll", () => {
-            if (
-                window.scrollY + window.innerHeight >
-                (this.state.photoList.current.scrollHeight * 3) / 4
-            ) {
-                if (!this.state.requested && !this.state.search) {
-                    let page = this.state.page;
-                    this.setState({
-                        page: page + 1,
-                    });
-                    this.loadPhotos();
-                } else if (!this.state.requested && this.state.search) {
-                    let page = this.state.page;
-                    this.setState({
-                        page: page + 1,
-                    });
-                    this.loadPhotos(this.state.query);
+            if (this.props.list.current) {
+                if (
+                    window.scrollY + window.innerHeight >
+                    (this.props.list.current.scrollHeight * 3) / 4
+                ) {
+                    if (!this.props.isRequested && !this.props.isSearched) {
+                        this.props.incrementPage();
+                        this.props.getPhotos(this.props.page);
+                    } else if (!this.props.isRequested && this.props.isSearched) {
+                        this.props.incrementPage();
+                        this.props.searchPhotos(this.props.page, this.props.query);
+                    }
                 }
             }
         });
@@ -112,20 +41,20 @@ class App extends React.Component {
     };
 
     show() {
-        if (this.state.error) {
+        if (this.props.error) {
             return <Error />;
         }
-        if (this.state.loading) {
+        if (this.props.isRequested) {
             return <Spinner />;
         }
-        return <PhotoList photos={this.state.photos} setPhotoList={this.setPhotoList} />;
+        return <PhotoList setPhotoList={this.setPhotoList} />;
     }
     render() {
         return (
             <div className="App">
                 <Header>
                     <Logo />
-                    <SearchBar onSubmit={this.loadPhotos} />
+                    <SearchBar />
                     <NavigationList>
                         <NavigationItem type="HOME" route="/" />
                         <NavigationItem type="LOGIN" route="/" />
@@ -137,5 +66,22 @@ class App extends React.Component {
         );
     }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        isRequested: state.isRequested,
+        page: state.page,
+        isSearched: state.isSearched,
+        query: state.query,
+        error: state.error,
+        list: state.list,
+    };
+};
+const mapDispatchToProps = {
+    getPhotos: actionCreators.getPhotos,
+    incrementPage: actionCreators.incrementPages,
+    fetchRequest: actionCreators.fetchRequest,
+    finishRequest: actionCreators.finishRequest,
+    searchPhotos: actionCreators.searchPhotos,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(App);

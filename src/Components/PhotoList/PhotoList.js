@@ -1,11 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import PhotoCard from "./PhotoCard/PhotoCard";
 import classes from "./PhotoList.module.css";
 import Error from "../Error/Error";
+import * as actionCreators from "../../actions";
 class PhotoList extends React.Component {
     photoListRef = React.createRef();
     componentDidMount() {
-        this.props.setPhotoList(this.photoListRef);
+        this.props.getPhotosList(this.photoListRef);
     }
 
     render() {
@@ -21,4 +23,13 @@ class PhotoList extends React.Component {
     }
 }
 
-export default PhotoList;
+const mapStateToProps = (state) => {
+    return {
+        photos: state.photos,
+    };
+};
+
+const mapDispatchToProps = {
+    getPhotosList: actionCreators.getPhotosList,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoList);

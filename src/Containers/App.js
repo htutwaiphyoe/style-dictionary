@@ -11,43 +11,33 @@ import Error from "../Components/Error/Error";
 import Spinner from "../Components/Spinner/Spinner";
 import * as actionCreators from "../actions/index";
 class App extends React.Component {
-    state = {
-        photoList: null,
-    };
-
     componentDidMount() {
         this.props.getPhotos(this.props.page);
-
+        console.log(this.props.list);
         window.addEventListener("scroll", () => {
-            if (this.props.list.current) {
-                if (
-                    window.scrollY + window.innerHeight >
-                    (this.props.list.current.scrollHeight * 3) / 4
-                ) {
-                    if (!this.props.isRequested && !this.props.isSearched) {
-                        this.props.incrementPage();
-                        this.props.getPhotos(this.props.page);
-                    } else if (!this.props.isRequested && this.props.isSearched) {
-                        this.props.incrementPage();
-                        this.props.searchPhotos(this.props.page, this.props.query);
-                    }
+            if (
+                window.scrollY + window.innerHeight >
+                (this.props.list.current.scrollHeight * 3) / 4
+            ) {
+                if (!this.props.isRequested && !this.props.isSearched) {
+                    this.props.incrementPage();
+                    this.props.getPhotos(this.props.page);
+                } else if (!this.props.isRequested && this.props.isSearched) {
+                    this.props.incrementPage();
+                    this.props.searchPhotos(this.props.page, this.props.query);
                 }
             }
         });
     }
 
-    setPhotoList = (list) => {
-        this.setState({ photoList: list });
-    };
-
     show() {
         if (this.props.error) {
             return <Error />;
         }
-        if (this.props.isRequested) {
-            return <Spinner />;
-        }
-        return <PhotoList setPhotoList={this.setPhotoList} />;
+        // if (this.props.isRequested) {
+        //     return <Spinner />;
+        // }
+        return <PhotoList />;
     }
     render() {
         return (
@@ -67,7 +57,6 @@ class App extends React.Component {
     }
 }
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         isRequested: state.isRequested,
         page: state.page,

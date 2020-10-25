@@ -6,6 +6,7 @@ import searchReducer from "./searchReducer";
 import queryReducer from "./queryReducer";
 import errorReducer from "./errorReducer";
 import listReducer from "./listReducer";
+import spanReducer from "./spanReducer";
 export default combineReducers({
     photos: photosReducer,
     page: pageReducer,
@@ -14,4 +15,5 @@ export default combineReducers({
     query: queryReducer,
     error: errorReducer,
     list: listReducer,
+    spans: spanReducer,
 });

@@ -1,5 +1,7 @@
 import React from "react";
 import classes from "./PhotoCard.module.css";
+import { connect } from "react-redux";
+import * as actionCreators from "../../../actions";
 class PhotoCard extends React.Component {
     state = {
         spans: 0,
@@ -13,6 +15,7 @@ class PhotoCard extends React.Component {
         this.setState({
             spans,
         });
+        // this.props.getSpan(spans);
     };
     render() {
         const { urls, alt_description } = this.props.photo;
@@ -24,4 +27,13 @@ class PhotoCard extends React.Component {
     }
 }
 
-export default PhotoCard;
+const mapStateToProps = (state) => {
+    return {
+        spans: state.spans,
+    };
+};
+
+const mapDispatchToProps = {
+    getSpan: actionCreators.getSpan,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoCard);

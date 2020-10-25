@@ -13,7 +13,6 @@ import * as actionCreators from "../actions/index";
 class App extends React.Component {
     componentDidMount() {
         this.props.getPhotos(this.props.page);
-        console.log(this.props.list);
         window.addEventListener("scroll", () => {
             if (
                 window.scrollY + window.innerHeight >
@@ -34,9 +33,9 @@ class App extends React.Component {
         if (this.props.error) {
             return <Error />;
         }
-        // if (this.props.isRequested) {
-        //     return <Spinner />;
-        // }
+        if (this.props.isRequested && this.props.page === 1) {
+            return <Spinner />;
+        }
         return <PhotoList />;
     }
     render() {

@@ -78,3 +78,7 @@ export const showError = () => {
 export const getPhotosList = (list) => {
     return { type: "GET_PHOTOS_LIST", payload: list };
 };
+
+export const getSpan = (span) => {
+    return { type: "GET_SPAN", payload: span };
+};

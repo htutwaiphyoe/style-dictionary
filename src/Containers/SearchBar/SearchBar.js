@@ -40,9 +40,9 @@ class SearchBar extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        page: state.page,
-        isSearched: state.isSearched,
-        query: state.query,
+        page: state.ui.page,
+        isSearched: state.ui.isSearched,
+        query: state.ui.query,
     };
 };
 

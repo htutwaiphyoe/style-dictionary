@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./App.css";
+import classes from "./App.module.css";
 import Header from "../Components/Header/Header";
 import Logo from "../Components/Header/Logo/Logo";
 import SearchBar from "./SearchBar/SearchBar";
@@ -13,20 +13,26 @@ import * as actionCreators from "../actions/index";
 class App extends React.Component {
     componentDidMount() {
         this.props.getPhotos(this.props.page);
-        window.addEventListener("scroll", () => {
-            if (
-                window.scrollY + window.innerHeight >
-                (this.props.list.current.scrollHeight * 3) / 4
-            ) {
-                if (!this.props.isRequested && !this.props.isSearched) {
-                    this.props.incrementPage();
-                    this.props.getPhotos(this.props.page);
-                } else if (!this.props.isRequested && this.props.isSearched) {
-                    this.props.incrementPage();
-                    this.props.searchPhotos(this.props.page, this.props.query);
+        try {
+            window.addEventListener("scroll", () => {
+                if (this.props.list.current) {
+                    if (
+                        window.scrollY + window.innerHeight >
+                        (this.props.list.current.scrollHeight * 3) / 4
+                    ) {
+                        if (!this.props.isRequested && !this.props.isSearched) {
+                            this.props.incrementPage();
+                            this.props.getPhotos(this.props.page);
+                        } else if (!this.props.isRequested && this.props.isSearched) {
+                            this.props.incrementPage();
+                            this.props.searchPhotos(this.props.page, this.props.query);
+                        }
+                    }
                 }
-            }
-        });
+            });
+        } catch (e) {
+            this.props.showError();
+        }
     }
 
     show() {
@@ -40,7 +46,7 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div className="App">
+            <div className={classes.App}>
                 <Header>
                     <Logo />
                     <SearchBar />
@@ -57,12 +63,12 @@ class App extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-        isRequested: state.isRequested,
-        page: state.page,
-        isSearched: state.isSearched,
-        query: state.query,
-        error: state.error,
-        list: state.list,
+        isRequested: state.ui.isRequested,
+        page: state.ui.page,
+        isSearched: state.ui.isSearched,
+        query: state.ui.query,
+        error: state.ui.error,
+        list: state.ui.list,
     };
 };
 const mapDispatchToProps = {
@@ -71,5 +77,6 @@ const mapDispatchToProps = {
     fetchRequest: actionCreators.fetchRequest,
     finishRequest: actionCreators.finishRequest,
     searchPhotos: actionCreators.searchPhotos,
+    showError: actionCreators.showError,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(App);

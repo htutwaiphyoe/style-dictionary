@@ -11,10 +11,14 @@ class PhotoCard extends React.Component {
         this.photoRef.current.addEventListener("load", this.setSpans);
     }
     setSpans = () => {
-        const spans = Math.ceil(this.photoRef.current.clientHeight / 100) + 1;
-        this.setState({
-            spans,
-        });
+        if (this.photoRef.current) {
+            let spans = (this.photoRef.current.clientHeight / 100).toFixed(0);
+
+            this.setState({
+                spans,
+            });
+        }
+
         // this.props.getSpan(spans);
     };
     render() {
@@ -29,7 +33,7 @@ class PhotoCard extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        spans: state.spans,
+        spans: state.ui.spans,
     };
 };
 

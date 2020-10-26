@@ -5,6 +5,10 @@
     width: 100%;
     padding: 0.8rem 5rem;
     box-shadow: 0 2px 2px #eee;
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    left: 0;
 }
 
 @media only screen and (max-width: 768px) {

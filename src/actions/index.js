@@ -1,6 +1,9 @@
 import unsplash from "../api/unsplash";
 
 let q = "";
+export const showError = () => {
+    return { type: "SHOW_ERROR" };
+};
 export const getPhotos = (page) => async (dispatch) => {
     try {
         dispatch(fetchRequest());
@@ -69,10 +72,6 @@ export const endSearch = () => {
 
 export const getQuery = (q) => {
     return { type: "GET_QUERY", payload: q };
-};
-
-export const showError = () => {
-    return { type: "SHOW_ERROR" };
 };
 
 export const getPhotosList = (list) => {

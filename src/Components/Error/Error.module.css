@@ -3,7 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 91.2vh;
+    height: 100vh;
     flex-direction: column;
     font-size: 1.6rem;
+}
+body {
+    width: 100%;
+    height: 100vh;
 }

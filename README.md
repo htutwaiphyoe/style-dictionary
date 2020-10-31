@@ -13,4 +13,10 @@
 ### Features
 
 -   Dyanmic Grid System
--   Downloadable Photoes
+-   Lazy Loading Or Infinite Scrolling
+-   Downloadable Photos
+-   Authentication with Google OAuth
+-   Lists of Newly Created Photos
+-   Lists of Search photos with A Particular Query Or Words
+-   Details of Selected Photo
+-   Random Photo

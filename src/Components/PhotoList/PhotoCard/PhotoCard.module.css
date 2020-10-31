@@ -7,6 +7,7 @@
 }
 .PhotoCard img {
     width: 100%;
+    cursor: zoom-in;
     /* height: 100%; */
     z-index: 5;
     transition: all 0.05s;

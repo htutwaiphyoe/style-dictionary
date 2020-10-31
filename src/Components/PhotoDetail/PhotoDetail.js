@@ -11,6 +11,7 @@ class PhotoDetail extends React.Component {
             this.props.getPhoto(id);
         }
     }
+
     show() {
         let component = <Spinner />;
         if (this.props.photo) {
@@ -44,7 +45,21 @@ class PhotoDetail extends React.Component {
                                 <span>{this.props.photo.downloads}</span>
                             </div>
                         </div>
-                        <div className={classes.Download}>Download</div>
+                        <div className={classes.Download}>
+                            {this.props.isSignedIn ? (
+                                <a
+                                    title="Download photo"
+                                    href={`https://unsplash.com/photos/${this.props.photo.id}/download?force=true&w=2400`}
+                                    download=""
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Download
+                                </a>
+                            ) : (
+                                `Sign In to Download`
+                            )}
+                        </div>
                     </div>
                     <div
                         className={
@@ -75,6 +90,7 @@ const mapStateToProps = (state) => {
     return {
         photo: state.photo,
         error: state.ui.error,
+        isSignedIn: state.auth.isSignedIn,
     };
 };
 const mapDispatchToProps = {

@@ -27,7 +27,7 @@ class PhotoCard extends React.Component {
         const { urls, alt_description } = this.props.photo;
         return (
             <div className={classes.PhotoCard} style={{ gridRowEnd: `span ${this.state.spans}` }}>
-                <Link to={`/photos/${this.props.photo.id}`}>
+                <Link to={`/${this.props.photo.id}`}>
                     <img src={urls.regular} alt={alt_description} ref={this.photoRef} />
                 </Link>
             </div>

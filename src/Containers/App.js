@@ -12,6 +12,7 @@ import Error from "../Components/Error/Error";
 import Spinner from "../Components/Spinner/Spinner";
 import * as actionCreators from "../actions/index";
 import PhotoDetail from "../Components/PhotoDetail/PhotoDetail";
+import GoogleOAuth from "../Components/GoogleOAuth/GoogleOAuth";
 class App extends React.Component {
     componentDidMount() {
         this.props.getPhotos(this.props.page);
@@ -55,15 +56,16 @@ class App extends React.Component {
                         <SearchBar />
                         <NavigationList>
                             <NavigationItem type="HOME" route="/" />
-                            <NavigationItem type="RANDOM" route="/" />
-                            <NavigationItem type="SIGNIN" route="/" show />
+                            <NavigationItem type="RANDOM" route="/random" />
                         </NavigationList>
+                        <GoogleOAuth />
                     </Header>
                     <Switch>
                         <Route path="/" exact>
                             {this.show()}
                         </Route>
-                        <Route path="/photos/:id" exact component={PhotoDetail} />
+                        <Route path="/:id" exact component={PhotoDetail} />
+                        <Route path="/random" exact component={PhotoDetail} />
                     </Switch>
                 </div>
             </BrowserRouter>

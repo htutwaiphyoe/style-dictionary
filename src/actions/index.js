@@ -45,7 +45,7 @@ export const searchPhotos = (page, query) => async (dispatch) => {
 export const getPhoto = (id) => async (dispatch) => {
     try {
         const response = await unsplash.get(`/photos/${id}`);
-        console.log(response);
+
         dispatch({ type: "LOAD_PHOTO", payload: response.data });
     } catch (e) {
         dispatch(showError());

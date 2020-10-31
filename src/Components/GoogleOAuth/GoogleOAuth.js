@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import * as authActionCreators from "../../actions/authActions";
+import classes from "./GoogleOAuth.module.css";
 class GoogleOAuth extends React.Component {
     componentDidMount() {
         window.gapi.load("client:auth2", () => {
@@ -48,8 +49,9 @@ class GoogleOAuth extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className={classes.GoogleOAuth}>
                 <ion-icon name="logo-google"></ion-icon>
+
                 {this.show()}
             </div>
         );

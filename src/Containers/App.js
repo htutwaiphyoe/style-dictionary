@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import classes from "./App.module.css";
 import Header from "../Components/Header/Header";
 import Logo from "../Components/Header/Logo/Logo";
@@ -10,6 +11,7 @@ import PhotoList from "../Components/PhotoList/PhotoList";
 import Error from "../Components/Error/Error";
 import Spinner from "../Components/Spinner/Spinner";
 import * as actionCreators from "../actions/index";
+import PhotoDetail from "../Components/PhotoDetail/PhotoDetail";
 class App extends React.Component {
     componentDidMount() {
         this.props.getPhotos(this.props.page);
@@ -46,18 +48,25 @@ class App extends React.Component {
     }
     render() {
         return (
-            <div className={classes.App}>
-                <Header>
-                    <Logo />
-                    <SearchBar />
-                    <NavigationList>
-                        <NavigationItem type="HOME" route="/" />
-                        <NavigationItem type="LOGIN" route="/" />
-                        <NavigationItem type="SIGNUP" route="/" show />
-                    </NavigationList>
-                </Header>
-                {this.show()}
-            </div>
+            <BrowserRouter>
+                <div className={classes.App}>
+                    <Header>
+                        <Logo />
+                        <SearchBar />
+                        <NavigationList>
+                            <NavigationItem type="HOME" route="/" />
+                            <NavigationItem type="RANDOM" route="/" />
+                            <NavigationItem type="SIGNIN" route="/" show />
+                        </NavigationList>
+                    </Header>
+                    <Switch>
+                        <Route path="/" exact>
+                            {this.show()}
+                        </Route>
+                        <Route path="/photos/:id" exact component={PhotoDetail} />
+                    </Switch>
+                </div>
+            </BrowserRouter>
         );
     }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as actionCreators from "../../actions";
+// import * as actionCreators from "../../store/actions";
 import classes from "./SearchBar.module.css";
 class SearchBar extends React.Component {
     onInputChange = (e) => {
@@ -38,20 +38,22 @@ class SearchBar extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        page: state.ui.page,
-        isSearched: state.ui.isSearched,
-        query: state.ui.query,
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         page: state.ui.page,
+//         isSearched: state.ui.isSearched,
+//         query: state.ui.query,
+//     };
+// };
 
-const mapDispatchToProps = {
-    searchPhotos: actionCreators.searchPhotos,
-    incrementPage: actionCreators.incrementPages,
-    startSearch: actionCreators.startSearch,
-    resetPages: actionCreators.resetPages,
-    resetPhotos: actionCreators.resetPhotos,
-    getQuery: actionCreators.getQuery,
-};
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+// const mapDispatchToProps = {
+//     searchPhotos: actionCreators.searchPhotos,
+//     incrementPage: actionCreators.incrementPages,
+//     startSearch: actionCreators.startSearch,
+//     resetPages: actionCreators.resetPages,
+//     resetPhotos: actionCreators.resetPhotos,
+//     getQuery: actionCreators.getQuery,
+// };
+// export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+
+export default SearchBar;

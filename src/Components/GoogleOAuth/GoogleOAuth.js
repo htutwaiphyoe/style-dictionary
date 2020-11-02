@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as authActionCreators from "../../actions/authActions";
+import * as authActionCreators from "../../store/actions/authActions";
 import classes from "./GoogleOAuth.module.css";
 class GoogleOAuth extends React.Component {
     componentDidMount() {

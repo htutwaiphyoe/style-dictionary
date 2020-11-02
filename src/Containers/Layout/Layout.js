@@ -6,6 +6,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import NavigationList from "../../Components/Header/NavigationList/NavigationList";
 import NavigationItem from "../../Components/Header/NavigationList/NavigationItem/NavigationItem";
 import GoogleOAuth from "../../Components/GoogleOAuth/GoogleOAuth";
+import classes from "./Layout.module.css";
 class Layout extends React.Component {
     render() {
         return (
@@ -19,6 +20,7 @@ class Layout extends React.Component {
                     </NavigationList>
                     <GoogleOAuth />
                 </Header>
+                <main className={classes.Layout}>{this.props.children}</main>
             </React.Fragment>
         );
     }

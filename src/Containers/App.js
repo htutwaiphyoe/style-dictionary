@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Layout from "./Layout/Layout";
 import Home from "./Home/Home";
@@ -8,7 +8,9 @@ class App extends React.Component {
         return (
             <BrowserRouter>
                 <Layout>
-                    <Home />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                    </Switch>
                 </Layout>
             </BrowserRouter>
         );

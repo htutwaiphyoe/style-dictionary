@@ -3,8 +3,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     width: 100%;
-    padding: 2rem;
-    margin-top: 6.2rem;
 }
 
 @media only screen and (max-width: 900px) {

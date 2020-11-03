@@ -1,5 +1,4 @@
-export const LOAD_PHOTOS = "LOAD_PHOTOS";
-
 // HOME
+export const LOAD_HOME_PHOTOS = "LOAD_HOME_PHOTOS";
 export const SHOW_HOME_LOADING = "SHOW_HOME_LOADING";
 export const SHOW_HOME_ERROR = "SHOW_HOME_ERROR";

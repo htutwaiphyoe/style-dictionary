@@ -3,22 +3,22 @@ import { connect } from "react-redux";
 // import * as actionCreators from "../../store/actions";
 import classes from "./SearchBar.module.css";
 class SearchBar extends React.Component {
-    onInputChange = (e) => {
-        this.props.getQuery(e.target.value.trim());
-    };
+    state = {
+        
+    }
     onFormSubmit = (e) => {
         e.preventDefault();
-        if (this.props.query) {
-            if (!this.props.isSearched) {
-                this.props.startSearch();
-                this.props.resetPages();
-                this.props.resetPhotos();
-                this.props.searchPhotos(this.props.page, this.props.query);
-            } else {
-                this.props.incrementPage();
-                this.props.searchPhotos(this.props.page, this.props.query);
-            }
-        }
+        // if (this.props.query) {
+        //     if (!this.props.isSearched) {
+        //         this.props.startSearch();
+        //         this.props.resetPages();
+        //         this.props.resetPhotos();
+        //         this.props.searchPhotos(this.props.page, this.props.query);
+        //     } else {
+        //         this.props.incrementPage();
+        //         this.props.searchPhotos(this.props.page, this.props.query);
+        //     }
+        // }
     };
     render() {
         return (

@@ -4,10 +4,14 @@ import { connect } from "react-redux";
 import classes from "./SearchBar.module.css";
 class SearchBar extends React.Component {
     state = {
-        
-    }
+        searchInput: "",
+    };
+    onInputChange = (e) => {
+        this.setState({ searchInput: e.target.value });
+    };
     onFormSubmit = (e) => {
         e.preventDefault();
+        console.log(this.state.searchInput);
         // if (this.props.query) {
         //     if (!this.props.isSearched) {
         //         this.props.startSearch();
@@ -30,7 +34,7 @@ class SearchBar extends React.Component {
                         placeholder="Search free high-resolution photos..."
                         className={classes.SearchInput}
                         onChange={this.onInputChange}
-                        value={this.props.query}
+                        value={this.state.searchInput}
                     />
                 </form>
             </div>

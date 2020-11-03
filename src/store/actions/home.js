@@ -34,6 +34,6 @@ export const getPhotos = (page) => async (dispatch) => {
         console.log(payload);
         dispatch(loadHomePhotos(payload));
     } catch (e) {
-        dispatch(showHomeError());
+        dispatch(showHomeError(e));
     }
 };

@@ -2,17 +2,22 @@ import React from "react";
 import { connect } from "react-redux";
 
 import PhotoList from "../../Components/PhotoList/PhotoList";
+import Spinner from "../../Components/Spinner/Spinner";
+import Error from "../../Components/Error/Error";
 import * as actionCreators from "../../store/actions";
 class Home extends React.Component {
     componentDidMount() {
         this.props.getPhotos(this.props.page);
     }
     render() {
-        return (
-            <React.Fragment>
-                <PhotoList photos={this.props.photos} />
-            </React.Fragment>
-        );
+        let components = <PhotoList photos={this.props.photos} />;
+        if (this.props.loading) {
+            components = <Spinner />;
+        }
+        if (this.props.error) {
+            components = <Error message={this.props.error.message} />;
+        }
+        return <React.Fragment>{components}</React.Fragment>;
     }
 }
 const mapStateToProps = (state) => {

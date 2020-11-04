@@ -11,7 +11,7 @@ class PhotoCard extends React.Component {
     }
     setSpans = () => {
         if (this.photoRef.current) {
-            let spans = (this.photoRef.current.clientHeight / 100).toFixed(0);
+            let spans = Math.round(this.photoRef.current.clientHeight / 100);
 
             this.setState({
                 spans,
@@ -22,7 +22,15 @@ class PhotoCard extends React.Component {
     render() {
         const { urls, alt_description } = this.props.photo;
         return (
-            <div className={classes.PhotoCard} style={{ gridRowEnd: `span ${this.state.spans}` }}>
+            <div
+                className={classes.PhotoCard}
+                style={{
+                    gridRowEnd: `span ${this.state.spans}`,
+                    backgroundImage: `url('${urls.regular}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center center",
+                }}
+            >
                 <Link to={`/${this.props.photo.id}`}>
                     <img src={urls.regular} alt={alt_description} ref={this.photoRef} />
                 </Link>

@@ -19,7 +19,7 @@ const showHomeError = (payload) => {
         payload,
     };
 };
-export const getPhotos = (page) => async (dispatch) => {
+export const getHomePhotos = (page) => async (dispatch) => {
     try {
         dispatch(showHomeLoading());
         const response = await unsplash.get("/photos", {
@@ -29,7 +29,7 @@ export const getPhotos = (page) => async (dispatch) => {
         });
         const payload = {
             data: response.data,
-            page: page,
+            page,
         };
         console.log(payload);
         dispatch(loadHomePhotos(payload));

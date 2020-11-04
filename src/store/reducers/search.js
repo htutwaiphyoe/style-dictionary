@@ -1,20 +1,22 @@
 import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../../utils/utils";
 const initialState = {
-    photos: [],
+    searchPhotos: [],
     loading: false,
-    error: null,
+    error: false,
     page: 1,
+    query: "",
 };
 
-const showHomeError = (state, action) => {
+const showSearchError = (state, action) => {
     return updateObject(state, {
-        loading: false,
         error: action.payload,
+        loading: false,
     });
 };
-const loadHomePhotos = (state, action) => {
-    let oldPhotos = [...state.photos];
+
+const loadSearchPhotos = (state, action) => {
+    let oldPhotos = [...state.searchPhotos];
     let data = action.payload.data;
     oldPhotos.forEach((photo) => {
         data.forEach((el, index) => {
@@ -25,21 +27,21 @@ const loadHomePhotos = (state, action) => {
     });
     return {
         ...state,
-        photos: [...oldPhotos, ...data],
+        searchPhotos: [...oldPhotos, ...data],
         loading: false,
         error: null,
         page: action.payload.page,
+        query: action.payload.query,
     };
 };
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.SHOW_HOME_LOADING:
+        case actionTypes.SHOW_SEARCH_LOADING:
             return updateObject(state, { loading: true });
-        case actionTypes.SHOW_HOME_ERROR:
-            return showHomeError(state, action);
-        case actionTypes.LOAD_HOME_PHOTOS:
-            return loadHomePhotos(state, action);
-
+        case actionTypes.SHOW_SEARCH_ERROR:
+            return showSearchError(state, action);
+        case actionTypes.LOAD_SEARCH_PHOTOS:
+            return loadSearchPhotos(state, action);
         default:
             return state;
     }

@@ -1,5 +1,5 @@
-export { getPhotos } from "./home";
-
+export { getHomePhotos } from "./home";
+export { getSearchPhotos } from "./search";
 // import unsplash from "../../api/unsplash";
 
 // let q = "";

@@ -1,7 +1,8 @@
 .PhotoDetail {
     width: 100%;
     padding: 2rem 3rem;
-    color: #444;
+    padding-top: 0;
+    color: rgb(114, 114, 114);
 }
 .Detail {
     display: flex;

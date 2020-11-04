@@ -11,3 +11,6 @@ export const CLEAR_SEARCH_PHOTOS = "CLEAR_SEARCH_PHOTOS";
 
 // Detail
 export const LOAD_PHOTO_DETAIL = "LOAD_PHOTO_DETAIL";
+
+// Detail
+export const LOAD_RANDOM_PHOTO = "LOAD_RANDOM_PHOTO";

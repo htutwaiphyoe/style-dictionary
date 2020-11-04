@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./PhotoDetail.module.css";
 const PhotoDetail = (props) => {
-    console.log(props);
     return (
         <section className={classes.PhotoDetail}>
             <div className={classes.Detail}>

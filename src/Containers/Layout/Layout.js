@@ -16,7 +16,7 @@ class Layout extends React.Component {
                     <SearchBar />
                     <NavigationList>
                         <NavigationItem route="/" type="HOME" />
-                        <NavigationItem route="/random" type="RANDOM" />
+                        <NavigationItem route="/photos/random" type="RANDOM" />
                     </NavigationList>
                     <GoogleOAuth />
                 </Header>

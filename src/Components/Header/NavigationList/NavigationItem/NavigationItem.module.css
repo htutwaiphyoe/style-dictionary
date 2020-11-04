@@ -2,6 +2,12 @@
     background-color: #eee;
     margin-left: 1rem;
     padding: 1rem;
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    -ms-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    border: 1px solid transparent;
 }
 .show,
 .show1 {
@@ -12,9 +18,12 @@
     color: #111;
 }
 .NavigationItem:hover {
-    background-color: #ccc;
+    background-color: rgb(250, 250, 250);
+    border: 1px solid rgb(245, 245, 245);
 }
-
+.NavigationItem a {
+    padding: 1rem 0;
+}
 @media only screen and (max-width: 768px) {
     .show1 {
         display: none;

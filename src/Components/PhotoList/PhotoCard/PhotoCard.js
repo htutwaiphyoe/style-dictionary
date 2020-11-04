@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./PhotoCard.module.css";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 class PhotoCard extends React.Component {
     state = {
         spans: 0,
@@ -18,7 +18,9 @@ class PhotoCard extends React.Component {
             });
         }
     };
-
+    onImageClick = () => {
+        this.props.history.push(`/photos/${this.props.photo.id}`);
+    };
     render() {
         const { urls, alt_description } = this.props.photo;
         return (
@@ -30,13 +32,12 @@ class PhotoCard extends React.Component {
                     backgroundSize: "cover",
                     backgroundPosition: "center center",
                 }}
+                onClick={this.onImageClick}
             >
-                <Link to={`/${this.props.photo.id}`}>
-                    <img src={urls.regular} alt={alt_description} ref={this.photoRef} />
-                </Link>
+                <img src={urls.regular} alt={alt_description} ref={this.photoRef} />
             </div>
         );
     }
 }
 
-export default PhotoCard;
+export default withRouter(PhotoCard);

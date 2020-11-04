@@ -1,5 +1,6 @@
 export { getHomePhotos } from "./home";
 export { getSearchPhotos, clearSearchPhotos } from "./search";
+export { fetchPhotoDetail } from "./detail";
 // import unsplash from "../../api/unsplash";
 
 // let q = "";
@@ -40,15 +41,6 @@ export { getSearchPhotos, clearSearchPhotos } from "./search";
 
 //         dispatch({ type: "LOAD_PHOTOS", payload: response.data.results });
 //         dispatch(finishRequest());
-//     } catch (e) {
-//         dispatch(showError());
-//     }
-// };
-// export const getPhoto = (id) => async (dispatch) => {
-//     try {
-//         const response = await unsplash.get(`/photos/${id}`);
-
-//         dispatch({ type: "LOAD_PHOTO", payload: response.data });
 //     } catch (e) {
 //         dispatch(showError());
 //     }

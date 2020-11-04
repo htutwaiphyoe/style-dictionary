@@ -3,8 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Layout from "./Layout/Layout";
 import Home from "./Home/Home";
-import Search from "./Search/Search";
-// const Search = React.lazy(() => import("./Search/Search"));
+import { Suspense } from "react";
+const Search = React.lazy(() => import("./Search/Search"));
+const Detail = React.lazy(() => import("./Detail/Detail"));
 class App extends React.Component {
     render() {
         return (
@@ -12,7 +13,10 @@ class App extends React.Component {
                 <Layout>
                     <Switch>
                         <Route exact path="/" component={Home} />
-                        <Route path="/search" component={Search} />
+                        <Suspense fallback={null}>
+                            <Route path="/search" component={Search} />
+                            <Route path="/photos/:id" component={Detail} />
+                        </Suspense>
                     </Switch>
                 </Layout>
             </BrowserRouter>

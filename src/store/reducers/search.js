@@ -34,6 +34,13 @@ const loadSearchPhotos = (state, action) => {
         query: action.payload.query,
     };
 };
+
+const clearSearchPhotos = (state, action) => {
+    console.log("ok");
+    return updateObject(state, {
+        searchPhotos: [],
+    });
+};
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.SHOW_SEARCH_LOADING:
@@ -42,6 +49,8 @@ const reducer = (state = initialState, action) => {
             return showSearchError(state, action);
         case actionTypes.LOAD_SEARCH_PHOTOS:
             return loadSearchPhotos(state, action);
+        case actionTypes.CLEAR_SEARCH_PHOTOS:
+            return clearSearchPhotos(state, action);
         default:
             return state;
     }

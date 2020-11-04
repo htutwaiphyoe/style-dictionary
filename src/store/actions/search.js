@@ -21,8 +21,16 @@ const loadSearchPhotos = (payload) => {
     };
 };
 
-export const getSearchPhotos = (page, query) => async (dispatch) => {
+export const clearSearchPhotos = () => {
+    return {
+        type: actionTypes.CLEAR_SEARCH_PHOTOS,
+    };
+};
+export const getSearchPhotos = (page, query, newQuery) => async (dispatch) => {
     try {
+        if (newQuery) {
+            clearSearchPhotos();
+        }
         dispatch(showSearchLoading());
         const response = await unsplash.get("/search/photos", {
             params: {

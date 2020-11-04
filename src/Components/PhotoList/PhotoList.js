@@ -9,10 +9,11 @@ class PhotoList extends React.Component {
     // }
 
     render() {
-        const photos = this.props.photos.map((photo) => <PhotoCard photo={photo} key={photo.id} />);
-        if (photos.length <= 0) {
+        if (this.props.photos.length <= 0) {
             return <Error message="No photos found" />;
         }
+        const photos = this.props.photos.map((photo) => <PhotoCard photo={photo} key={photo.id} />);
+
         return (
             <div className={classes.PhotoList} ref={this.photoListRef}>
                 {photos}

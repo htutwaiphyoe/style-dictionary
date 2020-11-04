@@ -20,6 +20,24 @@ const Error = (props) => {
                 </p>
             </React.Fragment>
         );
+    } else if (props.message === "No photos found") {
+        element = (
+            <React.Fragment>
+                <p>
+                    No photos found
+                    <span role="img" aria-label="bomb">
+                        💔
+                    </span>
+                    .
+                </p>
+                <p>
+                    Please try another one
+                    <span role="img" aria-label="please">
+                        🙏.
+                    </span>
+                </p>
+            </React.Fragment>
+        );
     } else {
         element = (
             <React.Fragment>

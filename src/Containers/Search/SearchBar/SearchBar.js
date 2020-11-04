@@ -1,5 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actionCreators from "../../../store/actions";
 import classes from "./SearchBar.module.css";
 class SearchBar extends React.Component {
     state = {
@@ -13,10 +15,15 @@ class SearchBar extends React.Component {
         const q = this.state.query.trim();
 
         if (q) {
+            let search = `${encodeURIComponent("q")}=${encodeURIComponent(q)}`;
             this.props.history.push({
                 pathname: "/search",
-                search: `?q=${q}`,
+                search: `?${search}`,
             });
+            if (this.props.query !== q) {
+                this.props.clearSearchPhotos();
+            }
+            this.props.getSearchPhotos(this.props.page, q);
             //     this.props.getSearchPhotos(this.props.page, q);
             //     // if (!this.props.isSearched) {
             //     //     this.props.startSearch();
@@ -46,5 +53,17 @@ class SearchBar extends React.Component {
         );
     }
 }
-
-export default withRouter(SearchBar);
+const mapStateToProps = (state) => {
+    return {
+        searchPhotos: state.search.searchPhotos,
+        loading: state.search.loading,
+        error: state.search.error,
+        page: state.search.page,
+        query: state.search.query,
+    };
+};
+const mapDispatchToProps = {
+    getSearchPhotos: actionCreators.getSearchPhotos,
+    clearSearchPhotos: actionCreators.clearSearchPhotos,
+};
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SearchBar));

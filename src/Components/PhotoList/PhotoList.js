@@ -4,9 +4,9 @@ import classes from "./PhotoList.module.css";
 import Error from "../Error/Error";
 class PhotoList extends React.Component {
     photoListRef = React.createRef();
-    // componentDidMount() {
-    //     this.props.getPhotosList(this.photoListRef);
-    // }
+    componentDidMount() {
+        this.props.getPhotosList(this.photoListRef);
+    }
 
     render() {
         if (this.props.photos.length <= 0) {

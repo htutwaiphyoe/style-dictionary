@@ -4,7 +4,7 @@ const initialState = {
     photos: [],
     loading: false,
     error: null,
-    page: 1,
+    // page: 1,
 };
 
 const showHomeError = (state, action) => {
@@ -28,7 +28,7 @@ const loadHomePhotos = (state, action) => {
         photos: [...oldPhotos, ...data],
         loading: false,
         error: null,
-        page: action.payload.page,
+        // page: action.payload.page,
     };
 };
 const reducer = (state = initialState, action) => {

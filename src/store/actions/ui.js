@@ -1,0 +1,13 @@
+import * as actionTypes from "./actionTypes";
+
+export const incrementPage = () => {
+    return { type: actionTypes.INCREMENT_PAGE };
+};
+
+export const fetchRequest = () => {
+    return { type: actionTypes.FETCH_REQUEST };
+};
+
+export const finishRequest = () => {
+    return { type: actionTypes.FINISH_REQUEST };
+};

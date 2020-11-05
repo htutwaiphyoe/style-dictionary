@@ -1,6 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import unsplash from "../../api/unsplash";
-
+import { fetchRequest, finishRequest } from "./ui";
 const loadHomePhotos = (payload) => {
     return {
         type: actionTypes.LOAD_HOME_PHOTOS,
@@ -21,7 +21,10 @@ const showHomeError = (payload) => {
 };
 export const getHomePhotos = (page) => async (dispatch) => {
     try {
-        dispatch(showHomeLoading());
+        if (page === 1) {
+            dispatch(showHomeLoading());
+        }
+        dispatch(fetchRequest());
         const response = await unsplash.get("/photos", {
             params: {
                 page,
@@ -29,10 +32,10 @@ export const getHomePhotos = (page) => async (dispatch) => {
         });
         const payload = {
             data: response.data,
-            page,
+            // page,
         };
-        console.log(payload);
         dispatch(loadHomePhotos(payload));
+        dispatch(finishRequest());
     } catch (e) {
         dispatch(showHomeError(e));
     }

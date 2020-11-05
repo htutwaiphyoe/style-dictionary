@@ -43,7 +43,6 @@ export const getSearchPhotos = (page, query, newQuery) => async (dispatch) => {
             page,
             query,
         };
-        console.log(payload);
         dispatch(loadSearchPhotos(payload));
     } catch (e) {
         dispatch(showSearchError(e));

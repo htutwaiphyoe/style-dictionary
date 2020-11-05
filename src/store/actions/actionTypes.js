@@ -14,3 +14,8 @@ export const LOAD_PHOTO_DETAIL = "LOAD_PHOTO_DETAIL";
 
 // Detail
 export const LOAD_RANDOM_PHOTO = "LOAD_RANDOM_PHOTO";
+
+// UI
+export const INCREMENT_PAGE = "INCREMENT_PAGE";
+export const FETCH_REQUEST = "FETCH_REQUEST";
+export const FINISH_REQUEST = "FINISH_REQUEST";

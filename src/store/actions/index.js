@@ -2,6 +2,8 @@ export { getHomePhotos } from "./home";
 export { getSearchPhotos, clearSearchPhotos } from "./search";
 export { fetchPhotoDetail } from "./detail";
 export { fetchRandomPhoto } from "./random";
+export { incrementPage } from "./ui";
+
 // import unsplash from "../../api/unsplash";
 
 // let q = "";
@@ -20,13 +22,6 @@ export { fetchRandomPhoto } from "./random";
 //     return { type: "RESET_PAGE" };
 // };
 
-// export const fetchRequest = () => {
-//     return { type: "FETCH_REQUEST" };
-// };
-
-// export const finishRequest = () => {
-//     return { type: "FINISH_REQUEST" };
-// };
 
 // export const startSearch = () => {
 //     return { type: "START_SEARCH" };

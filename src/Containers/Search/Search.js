@@ -6,12 +6,15 @@ import Spinner from "../../Components/Spinner/Spinner";
 import Error from "../../Components/Error/Error";
 class Search extends React.Component {
     componentDidMount() {
+        this.props.resetPage();
+        this.props.clearSearchPhotos();
+        window.scrollTo(0, 0);
         const query = new URLSearchParams(this.props.location.search);
         let q = "";
         for (let params of query.entries()) {
             q = params[1];
         }
-        this.props.getSearchPhotos(this.props.page, q);
+        this.props.getSearchPhotos(1, q);
         window.addEventListener("scroll", () => {
             if (this.props.list.current) {
                 if (
@@ -20,7 +23,7 @@ class Search extends React.Component {
                 ) {
                     if (!this.props.isRequested) {
                         this.props.incrementPage();
-                        this.props.getSearchPhotos(this.props.page, q);
+                        this.props.getSearchPhotos(this.props.page, this.props.query);
                     }
                 }
             }
@@ -55,5 +58,6 @@ const mapDispatchToProps = {
     clearSearchPhotos: actionCreators.clearSearchPhotos,
     getPhotosList: actionCreators.getPhotosList,
     incrementPage: actionCreators.incrementPage,
+    resetPage: actionCreators.resetPage,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Search);

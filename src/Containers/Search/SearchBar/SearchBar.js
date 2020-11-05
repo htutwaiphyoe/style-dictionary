@@ -22,6 +22,7 @@ class SearchBar extends React.Component {
             });
             if (this.props.query !== q) {
                 this.props.clearSearchPhotos();
+                window.scrollTo(0, 0);
             }
             this.props.getSearchPhotos(this.props.page, q);
             //     this.props.getSearchPhotos(this.props.page, q);

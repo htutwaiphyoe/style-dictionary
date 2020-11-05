@@ -1,25 +1,19 @@
-export { getHomePhotos } from "./home";
+export { getHomePhotos, clearHomePhotos } from "./home";
 export { getSearchPhotos, clearSearchPhotos } from "./search";
 export { fetchPhotoDetail } from "./detail";
 export { fetchRandomPhoto } from "./random";
-export { incrementPage, getPhotosList } from "./ui";
+export { incrementPage, getPhotosList, resetPage } from "./ui";
 
-// import unsplash from "../../api/unsplash";
 
-// let q = "";
+
+
 // export const showError = () => {
 //     return { type: "SHOW_ERROR" };
 // };
 
-// export const resetPhotos = () => {
-//     return { type: "RESET_PHOTOS" };
-// };
 
 // export const incrementPages = () => {
 //     return { type: "INCREMENT_PAGE" };
-// };
-// export const resetPages = () => {
-//     return { type: "RESET_PAGE" };
 // };
 
 // export const startSearch = () => {

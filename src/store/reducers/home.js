@@ -4,7 +4,6 @@ const initialState = {
     photos: [],
     loading: false,
     error: null,
-    // page: 1,
 };
 
 const showHomeError = (state, action) => {
@@ -28,8 +27,11 @@ const loadHomePhotos = (state, action) => {
         photos: [...oldPhotos, ...data],
         loading: false,
         error: null,
-        // page: action.payload.page,
     };
+};
+
+const clearHomePhotos = (state, action) => {
+    return updateObject(state, { photos: [] });
 };
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -39,7 +41,8 @@ const reducer = (state = initialState, action) => {
             return showHomeError(state, action);
         case actionTypes.LOAD_HOME_PHOTOS:
             return loadHomePhotos(state, action);
-
+        case actionTypes.CLEAR_HOME_PHOTOS:
+            return clearHomePhotos(state, action);
         default:
             return state;
     }

@@ -19,6 +19,11 @@ const showHomeError = (payload) => {
         payload,
     };
 };
+export const clearHomePhotos = () => {
+    return {
+        type: actionTypes.CLEAR_HOME_PHOTOS,
+    };
+};
 export const getHomePhotos = (page) => async (dispatch) => {
     try {
         if (page === 1) {

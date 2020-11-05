@@ -15,3 +15,8 @@ export const finishRequest = () => {
 export const getPhotosList = (payload) => {
     return { type: actionTypes.GET_PHOTOS_LIST, payload };
 };
+
+export const resetPage = () => {
+    console.log("Reset");
+    return { type: actionTypes.RESET_PAGE };
+};

@@ -7,12 +7,16 @@ import Error from "../../Components/Error/Error";
 import * as actionCreators from "../../store/actions";
 class Home extends React.Component {
     componentDidMount() {
-        this.props.getHomePhotos(this.props.page);
+        this.props.resetPage();
+        this.props.clearHomePhotos();
+        window.scrollTo(0, 0);
+
+        this.props.getHomePhotos(1);
         window.addEventListener("scroll", () => {
             if (this.props.list.current) {
                 if (
                     window.scrollY + window.innerHeight >
-                    (this.props.list.current.scrollHeight * 4) / 5
+                    (this.props.list.current.scrollHeight * 3) / 4
                 ) {
                     if (!this.props.isRequested) {
                         this.props.incrementPage();
@@ -50,5 +54,7 @@ const mapDispatchToProps = {
     getHomePhotos: actionCreators.getHomePhotos,
     incrementPage: actionCreators.incrementPage,
     getPhotosList: actionCreators.getPhotosList,
+    resetPage: actionCreators.resetPage,
+    clearHomePhotos: actionCreators.clearHomePhotos,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

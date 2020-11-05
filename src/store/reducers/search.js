@@ -4,7 +4,7 @@ const initialState = {
     searchPhotos: [],
     loading: false,
     error: false,
-    page: 1,
+    // page: 1,
     query: "",
 };
 
@@ -30,7 +30,7 @@ const loadSearchPhotos = (state, action) => {
         searchPhotos: [...oldPhotos, ...data],
         loading: false,
         error: null,
-        page: action.payload.page,
+        // page: action.payload.page,
         query: action.payload.query,
     };
 };

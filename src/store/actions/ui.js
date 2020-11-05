@@ -11,3 +11,7 @@ export const fetchRequest = () => {
 export const finishRequest = () => {
     return { type: actionTypes.FINISH_REQUEST };
 };
+
+export const getPhotosList = (payload) => {
+    return { type: actionTypes.GET_PHOTOS_LIST, payload };
+};

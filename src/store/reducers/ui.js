@@ -1,6 +1,6 @@
 const initialState = {
     // error: false,
-    // list: 0,
+    list: null,
     isRequested: false,
     // query: "",
     // spans: 0,
@@ -12,8 +12,8 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         // case "SHOW_ERROR":
         //     return { ...state, error: true };
-        // case "GET_PHOTOS_LIST":
-        //     return { ...state, list: action.payload };
+        case "GET_PHOTOS_LIST":
+            return { ...state, list: action.payload };
         case "FETCH_REQUEST":
             return { ...state, isRequested: true };
         case "FINISH_REQUEST":

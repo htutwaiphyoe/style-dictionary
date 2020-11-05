@@ -2,7 +2,7 @@ export { getHomePhotos } from "./home";
 export { getSearchPhotos, clearSearchPhotos } from "./search";
 export { fetchPhotoDetail } from "./detail";
 export { fetchRandomPhoto } from "./random";
-export { incrementPage } from "./ui";
+export { incrementPage, getPhotosList } from "./ui";
 
 // import unsplash from "../../api/unsplash";
 
@@ -22,7 +22,6 @@ export { incrementPage } from "./ui";
 //     return { type: "RESET_PAGE" };
 // };
 
-
 // export const startSearch = () => {
 //     return { type: "START_SEARCH" };
 // };
@@ -33,10 +32,6 @@ export { incrementPage } from "./ui";
 
 // export const getQuery = (q) => {
 //     return { type: "GET_QUERY", payload: q };
-// };
-
-// export const getPhotosList = (list) => {
-//     return { type: "GET_PHOTOS_LIST", payload: list };
 // };
 
 // export const getSpan = (span) => {

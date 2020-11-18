@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import uiReducer from "./ui";
-import authReducer from "./authReducer";
+import authReducer from "./auth";
 import homeReducer from "./home";
 import searchReducer from "./search";
 import detailReducer from "./detail";

@@ -24,3 +24,7 @@ export const FETCH_REQUEST = "FETCH_REQUEST";
 export const FINISH_REQUEST = "FINISH_REQUEST";
 export const GET_PHOTOS_LIST = "GET_PHOTOS_LIST";
 export const RESET_PAGE = "RESET_PAGE";
+
+// Auth
+export const SIGN_IN = "SIGN_IN";
+export const SIGN_OUT = "SIGN_OUT";

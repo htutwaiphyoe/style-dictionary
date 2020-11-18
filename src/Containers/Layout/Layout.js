@@ -6,7 +6,7 @@ import Logo from "../../Components/Header/Logo/Logo";
 import SearchBar from "../Search/SearchBar/SearchBar";
 import NavigationList from "../../Components/Header/NavigationList/NavigationList";
 import NavigationItem from "../../Components/Header/NavigationList/NavigationItem/NavigationItem";
-import GoogleOAuth from "../../Components/GoogleOAuth/GoogleOAuth";
+import GoogleOAuth from "../../Containers/GoogleOAuth/GoogleOAuth";
 import classes from "./Layout.module.css";
 import * as actionCreators from "../../store/actions";
 class Layout extends React.Component {

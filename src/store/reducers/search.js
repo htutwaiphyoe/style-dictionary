@@ -34,7 +34,6 @@ const loadSearchPhotos = (state, action) => {
 };
 
 const clearSearchPhotos = (state, action) => {
-    console.log("ok");
     return updateObject(state, {
         searchPhotos: [],
     });

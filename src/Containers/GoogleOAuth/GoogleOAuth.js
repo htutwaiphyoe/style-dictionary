@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import * as authActionCreators from "../../store/actions/authActions";
+import * as actionCreators from "../../store/actions";
 import classes from "./GoogleOAuth.module.css";
 class GoogleOAuth extends React.Component {
     componentDidMount() {
@@ -51,7 +51,6 @@ class GoogleOAuth extends React.Component {
         return (
             <div className={classes.GoogleOAuth}>
                 <ion-icon name="logo-google"></ion-icon>
-
                 {this.show()}
             </div>
         );
@@ -63,7 +62,7 @@ const mapStateToProps = (state) => {
     };
 };
 const mapDispatchToProps = {
-    signIn: authActionCreators.signIn,
-    signOut: authActionCreators.signOut,
+    signIn: actionCreators.signIn,
+    signOut: actionCreators.signOut,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleOAuth);

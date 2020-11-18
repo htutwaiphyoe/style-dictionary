@@ -12,7 +12,9 @@ class Detail extends React.Component {
     render() {
         let components = <Spinner />;
         if (this.props.photo) {
-            components = <PhotoDetail photo={this.props.photo} />;
+            components = (
+                <PhotoDetail photo={this.props.photo} isSignedIn={this.props.isSignedIn} />
+            );
         }
         return components;
     }
@@ -20,6 +22,7 @@ class Detail extends React.Component {
 const mapStateToProps = (state) => {
     return {
         photo: state.detail.photo,
+        isSignedIn: state.auth.isSignedIn,
     };
 };
 const mapDispatchToProps = {

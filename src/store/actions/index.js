@@ -3,6 +3,7 @@ export { getSearchPhotos, clearSearchPhotos } from "./search";
 export { fetchPhotoDetail, clearPhotoDetail } from "./detail";
 export { fetchRandomPhoto, clearRandomPhoto } from "./random";
 export { incrementPage, getPhotosList, resetPage } from "./ui";
+export { signIn, signOut } from "./auth";
 
 // export const showError = () => {
 //     return { type: "SHOW_ERROR" };

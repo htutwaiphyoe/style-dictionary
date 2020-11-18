@@ -6,13 +6,16 @@ const loadPhotoDetail = (payload) => {
         payload,
     };
 };
+export const clearPhotoDetail = () => {
+    return {
+        type: actionTypes.CLEAR_PHOTO_DETAIL,
+    };
+};
 export const fetchPhotoDetail = (id) => async (dispatch) => {
     try {
         const response = await unsplash.get(`/photos/${id}`);
-        console.log(response.data);
         dispatch(loadPhotoDetail(response.data));
     } catch (e) {
-        // dispatch(showError());
         console.log(e);
     }
 };

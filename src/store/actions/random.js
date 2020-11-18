@@ -6,10 +6,12 @@ const loadRandomPhoto = (payload) => {
         payload,
     };
 };
+export const clearRandomPhoto = () => {
+    return { type: actionTypes.CLEAR_RANDOM_PHOTO };
+};
 export const fetchRandomPhoto = () => async (dispatch) => {
     try {
         const response = await unsplash.get(`/photos/random`);
-        console.log(response.data);
         dispatch(loadRandomPhoto(response.data));
     } catch (e) {
         console.log(e);

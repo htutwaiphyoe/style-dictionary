@@ -25,16 +25,6 @@ class SearchBar extends React.Component {
                 window.scrollTo(0, 0);
             }
             this.props.getSearchPhotos(this.props.page, q);
-            //     this.props.getSearchPhotos(this.props.page, q);
-            //     // if (!this.props.isSearched) {
-            //     //     this.props.startSearch();
-            //     //     this.props.resetPages();
-            //     //     this.props.resetPhotos();
-            //     //     this.props.searchPhotos(this.props.page, this.props.query);
-            //     // } else {
-            //     //     this.props.incrementPage();
-            //     //     this.props.searchPhotos(this.props.page, this.props.query);
-            //     // }
         }
     };
     render() {

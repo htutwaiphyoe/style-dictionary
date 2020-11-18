@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import Header from "../../Components/Header/Header";
 import Logo from "../../Components/Header/Logo/Logo";
@@ -7,6 +8,7 @@ import NavigationList from "../../Components/Header/NavigationList/NavigationLis
 import NavigationItem from "../../Components/Header/NavigationList/NavigationItem/NavigationItem";
 import GoogleOAuth from "../../Components/GoogleOAuth/GoogleOAuth";
 import classes from "./Layout.module.css";
+import * as actionCreators from "../../store/actions";
 class Layout extends React.Component {
     render() {
         return (
@@ -16,7 +18,11 @@ class Layout extends React.Component {
                     <SearchBar />
                     <NavigationList>
                         <NavigationItem route="/" type="HOME" />
-                        <NavigationItem route="/photos/random" type="RANDOM" />
+                        <NavigationItem
+                            route="/photos/random"
+                            type="RANDOM"
+                            fetchRandomPhoto={this.props.fetchRandomPhoto}
+                        />
                     </NavigationList>
                     <GoogleOAuth />
                 </Header>
@@ -25,5 +31,7 @@ class Layout extends React.Component {
         );
     }
 }
-
-export default Layout;
+const mapDispatchToProps = {
+    fetchRandomPhoto: actionCreators.fetchRandomPhoto,
+};
+export default connect(null, mapDispatchToProps)(Layout);

@@ -5,6 +5,8 @@ import PhotoDetail from "../../Components/PhotoDetail/PhotoDetail";
 import Spinner from "../../Components/Spinner/Spinner";
 class Detail extends React.Component {
     componentDidMount() {
+        this.props.clearPhotoDetail();
+        window.scrollTo(0, 0);
         this.props.fetchPhotoDetail(this.props.match.params.id);
     }
     render() {
@@ -22,5 +24,6 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = {
     fetchPhotoDetail: actionCreators.fetchPhotoDetail,
+    clearPhotoDetail: actionCreators.clearPhotoDetail,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Detail);

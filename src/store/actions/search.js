@@ -40,7 +40,6 @@ export const getSearchPhotos = (page, query) => async (dispatch) => {
         });
         const payload = {
             data: response.data.results,
-            // page,
             query,
         };
         dispatch(loadSearchPhotos(payload));

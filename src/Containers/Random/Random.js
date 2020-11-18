@@ -5,6 +5,8 @@ import PhotoDetail from "../../Components/PhotoDetail/PhotoDetail";
 import Spinner from "../../Components/Spinner/Spinner";
 class Random extends React.Component {
     componentDidMount() {
+        this.props.clearRandomPhoto();
+        window.scrollTo(0, 0);
         this.props.fetchRandomPhoto();
     }
     render() {
@@ -22,5 +24,6 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = {
     fetchRandomPhoto: actionCreators.fetchRandomPhoto,
+    clearRandomPhoto: actionCreators.clearRandomPhoto,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Random);

@@ -9,10 +9,15 @@ const loadPhotoDetail = (state, action) => {
         photo: action.payload,
     });
 };
+const clearPhotoDetail = (state, action) => {
+    return updateObject(state, { photo: null });
+};
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.LOAD_PHOTO_DETAIL:
             return loadPhotoDetail(state, action);
+        case actionTypes.CLEAR_PHOTO_DETAIL:
+            return clearPhotoDetail(state, action);
         default:
             return state;
     }

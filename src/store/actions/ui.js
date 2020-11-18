@@ -19,3 +19,15 @@ export const getPhotosList = (payload) => {
 export const resetPage = () => {
     return { type: actionTypes.RESET_PAGE };
 };
+
+export const showError = (payload) => {
+    return { type: actionTypes.SHOW_ERROR, payload };
+};
+
+export const showLoading = () => {
+    return { type: actionTypes.SHOW_LOADING };
+};
+
+export const hideLoading = () => {
+    return { type: actionTypes.HIDE_LOADING };
+};

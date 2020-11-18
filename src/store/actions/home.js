@@ -1,24 +1,13 @@
 import * as actionTypes from "./actionTypes";
 import unsplash from "../../api/unsplash";
-import { fetchRequest, finishRequest } from "./ui";
+import { fetchRequest, finishRequest, showLoading, showError, hideLoading } from "./ui";
 const loadHomePhotos = (payload) => {
     return {
         type: actionTypes.LOAD_HOME_PHOTOS,
         payload,
     };
 };
-const showHomeLoading = () => {
-    return {
-        type: actionTypes.SHOW_HOME_LOADING,
-    };
-};
 
-const showHomeError = (payload) => {
-    return {
-        type: actionTypes.SHOW_HOME_ERROR,
-        payload,
-    };
-};
 export const clearHomePhotos = () => {
     return {
         type: actionTypes.CLEAR_HOME_PHOTOS,
@@ -27,7 +16,7 @@ export const clearHomePhotos = () => {
 export const getHomePhotos = (page) => async (dispatch) => {
     try {
         if (page === 1) {
-            dispatch(showHomeLoading());
+            dispatch(showLoading());
         }
         dispatch(fetchRequest());
         const response = await unsplash.get("/photos", {
@@ -37,11 +26,11 @@ export const getHomePhotos = (page) => async (dispatch) => {
         });
         const payload = {
             data: response.data,
-            // page,
         };
         dispatch(loadHomePhotos(payload));
+        dispatch(hideLoading());
         dispatch(finishRequest());
     } catch (e) {
-        dispatch(showHomeError(e));
+        dispatch(showError(e));
     }
 };

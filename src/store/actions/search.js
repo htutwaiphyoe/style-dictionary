@@ -1,18 +1,6 @@
 import unsplash from "../../api/unsplash";
 import * as actionTypes from "./actionTypes";
-import { fetchRequest, finishRequest } from "./ui";
-const showSearchLoading = () => {
-    return {
-        type: actionTypes.SHOW_SEARCH_LOADING,
-    };
-};
-
-const showSearchError = (payload) => {
-    return {
-        type: actionTypes.SHOW_SEARCH_ERROR,
-        payload,
-    };
-};
+import { fetchRequest, finishRequest, showError, showLoading, hideLoading } from "./ui";
 
 const loadSearchPhotos = (payload) => {
     return {
@@ -29,7 +17,7 @@ export const clearSearchPhotos = () => {
 export const getSearchPhotos = (page, query) => async (dispatch) => {
     try {
         if (page === 1) {
-            dispatch(showSearchLoading());
+            dispatch(showLoading());
         }
         dispatch(fetchRequest());
         const response = await unsplash.get("/search/photos", {
@@ -43,8 +31,9 @@ export const getSearchPhotos = (page, query) => async (dispatch) => {
             query,
         };
         dispatch(loadSearchPhotos(payload));
+        dispatch(hideLoading());
         dispatch(finishRequest());
     } catch (e) {
-        dispatch(showSearchError(e));
+        dispatch(showError(e));
     }
 };

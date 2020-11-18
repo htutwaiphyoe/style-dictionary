@@ -45,10 +45,10 @@ class Search extends React.Component {
 const mapStateToProps = (state) => {
     return {
         searchPhotos: state.search.searchPhotos,
-        loading: state.search.loading,
-        error: state.search.error,
-        page: state.ui.page,
         query: state.search.query,
+        loading: state.ui.loading,
+        error: state.ui.error,
+        page: state.ui.page,
         list: state.ui.list,
         isRequested: state.ui.isRequested,
     };

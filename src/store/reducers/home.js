@@ -2,16 +2,8 @@ import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../../utils/utils";
 const initialState = {
     photos: [],
-    loading: false,
-    error: null,
 };
 
-const showHomeError = (state, action) => {
-    return updateObject(state, {
-        loading: false,
-        error: action.payload,
-    });
-};
 const loadHomePhotos = (state, action) => {
     let oldPhotos = [...state.photos];
     let data = action.payload.data;
@@ -25,8 +17,6 @@ const loadHomePhotos = (state, action) => {
     return {
         ...state,
         photos: [...oldPhotos, ...data],
-        loading: false,
-        error: null,
     };
 };
 
@@ -35,10 +25,6 @@ const clearHomePhotos = (state, action) => {
 };
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.SHOW_HOME_LOADING:
-            return updateObject(state, { loading: true });
-        case actionTypes.SHOW_HOME_ERROR:
-            return showHomeError(state, action);
         case actionTypes.LOAD_HOME_PHOTOS:
             return loadHomePhotos(state, action);
         case actionTypes.CLEAR_HOME_PHOTOS:

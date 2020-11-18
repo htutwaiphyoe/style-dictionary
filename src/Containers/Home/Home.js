@@ -43,8 +43,8 @@ class Home extends React.Component {
 const mapStateToProps = (state) => {
     return {
         photos: state.home.photos,
-        loading: state.home.loading,
-        error: state.home.error,
+        loading: state.ui.loading,
+        error: state.ui.error,
         page: state.ui.page,
         isRequested: state.ui.isRequested,
         list: state.ui.list,

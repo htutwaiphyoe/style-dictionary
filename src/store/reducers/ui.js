@@ -1,35 +1,31 @@
+import * as actionTypes from "../actions/actionTypes";
+import { updateObject } from "../../utils/utils";
 const initialState = {
-    // error: false,
+    loading: false,
+    error: null,
     list: null,
     isRequested: false,
-    // query: "",
-    // spans: 0,
     page: 1,
-    // isSearched: false,
 };
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        // case "SHOW_ERROR":
-        //     return { ...state, error: true };
-        case "GET_PHOTOS_LIST":
-            return { ...state, list: action.payload };
-        case "FETCH_REQUEST":
-            return { ...state, isRequested: true };
-        case "FINISH_REQUEST":
-            return { ...state, isRequested: false };
-        // case "GET_QUERY":
-        //     return { ...state, query: action.payload };
-        // case "GET_SPAN":
-        //     return { ...state, spans: action.payload };
-        case "INCREMENT_PAGE":
-            return { ...state, page: state.page + 1 };
-        case "RESET_PAGE":
-            return { ...state, page: 1 };
-        // case "START_SEARCH":
-        //     return { ...state, isSearched: true };
-        // case "END_SEARCH":
-        //     return { ...state, isSearched: false };
+        case actionTypes.SHOW_ERROR:
+            return updateObject(state, { error: action.payload, loading: false });
+        case actionTypes.SHOW_LOADING:
+            return updateObject(state, { loading: true });
+        case actionTypes.HIDE_LOADING:
+            return updateObject(state, { loading: false, error: null });
+        case actionTypes.GET_PHOTOS_LIST:
+            return updateObject(state, { list: action.payload });
+        case actionTypes.FETCH_REQUEST:
+            return updateObject(state, { isRequested: true });
+        case actionTypes.FINISH_REQUEST:
+            return updateObject(state, { isRequested: false });
+        case actionTypes.INCREMENT_PAGE:
+            return updateObject(state, { page: state.page + 1 });
+        case actionTypes.RESET_PAGE:
+            return updateObject(state, { page: 1 });
         default:
             return state;
     }

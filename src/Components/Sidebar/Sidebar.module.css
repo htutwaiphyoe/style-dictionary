@@ -38,7 +38,7 @@
 .Footer {
     text-align: center;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 768px) {
     .Sidebar {
         display: flex;
         flex-direction: column;

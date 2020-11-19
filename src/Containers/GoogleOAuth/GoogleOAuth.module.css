@@ -23,7 +23,7 @@
     border: 1px solid rgb(245, 245, 245);
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 768px) {
     .GoogleOAuth {
         margin-left: 0rem;
         justify-content: center;

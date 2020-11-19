@@ -3,7 +3,6 @@ import classes from "./Sidebar.module.css";
 import Backdrop from "../Backdrop/Backdrop";
 import NavigationItem from "../Header/NavigationList/NavigationItem/NavigationItem";
 import GoogleOAuth from "../../Containers/GoogleOAuth/GoogleOAuth";
-
 import userIcon from "../../assets/usertran.png";
 const Sidebar = (props) => {
     let cssClasses = [classes.Sidebar];
@@ -40,7 +39,11 @@ const Sidebar = (props) => {
                 </nav>
                 <div className={classes.Footer}>
                     Developed by{" "}
-                    <a href="https://htutwaiphyoe.netlify.app/" target="_blank">
+                    <a
+                        href="https://htutwaiphyoe.netlify.app/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         Htut Wai Phyoe
                     </a>
                     <div>Powered by Unsplash API</div>

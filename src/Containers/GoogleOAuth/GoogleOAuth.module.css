@@ -25,6 +25,7 @@
 
 @media only screen and (max-width: 576px) {
     .GoogleOAuth {
-        display: none;
+        margin-left: 0rem;
+        justify-content: center;
     }
 }

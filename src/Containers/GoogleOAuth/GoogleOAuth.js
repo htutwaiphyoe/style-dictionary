@@ -38,18 +38,25 @@ class GoogleOAuth extends React.Component {
     onSignOutClick = () => {
         this.auth.signOut();
     };
+    onClickHandler = () => {
+        if (this.props.isSignedIn) {
+            this.onSignOutClick();
+        } else {
+            this.onSignInClick();
+        }
+    };
     show() {
         if (this.props.isSignedIn === null) {
             return null;
         } else if (this.props.isSignedIn) {
-            return <span onClick={this.onSignOutClick}>LOG OUT</span>;
+            return <span>LOG OUT</span>;
         } else {
-            return <span onClick={this.onSignInClick}>SIGN IN</span>;
+            return <span>SIGN IN</span>;
         }
     }
     render() {
         return (
-            <div className={classes.GoogleOAuth}>
+            <div className={classes.GoogleOAuth} onClick={this.onClickHandler}>
                 <ion-icon name="logo-google"></ion-icon>
                 {this.show()}
             </div>

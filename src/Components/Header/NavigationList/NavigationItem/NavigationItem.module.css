@@ -1,13 +1,14 @@
 .NavigationItem {
     background-color: #eee;
     margin-left: 1rem;
-    padding: 1rem;
+    padding: 0 1rem;
     transition: all 0.1s;
     -webkit-transition: all 0.1s;
     -moz-transition: all 0.1s;
     -ms-transition: all 0.1s;
     -o-transition: all 0.1s;
     border: 1px solid transparent;
+    cursor: pointer;
 }
 .NavigationItem a:link,
 .NavigationItem a:visited {
@@ -19,10 +20,11 @@
 }
 .NavigationItem a {
     padding: 1rem 0;
+    display: block;
 }
 
 @media only screen and (max-width: 576px) {
     .NavigationItem {
-        display: none;
+        margin-left: 0rem;
     }
 }

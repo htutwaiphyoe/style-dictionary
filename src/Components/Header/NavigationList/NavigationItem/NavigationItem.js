@@ -5,6 +5,7 @@ import classes from "./NavigationItem.module.css";
 import * as actionCreators from "../../../../store/actions";
 const Auth = (props) => {
     const clickHandler = () => {
+        props.hideSidebar();
         if (props.fetchRandomPhoto) {
             props.clearRandomPhoto();
             props.fetchRandomPhoto();

@@ -16,7 +16,11 @@ class Layout extends React.Component {
         return (
             <React.Fragment>
                 <Header>
-                    <Sidebar sidebar={this.props.sidebar} hideSidebar={this.props.hideSidebar} />
+                    <Sidebar
+                        sidebar={this.props.sidebar}
+                        hideSidebar={this.props.hideSidebar}
+                        auth={this.props.auth}
+                    />
                     <HumburgerIcon showSidebar={this.props.showSidebar} />
                     <Logo />
                     <SearchBar />
@@ -27,8 +31,8 @@ class Layout extends React.Component {
                             type="RANDOM"
                             fetchRandomPhoto={this.props.fetchRandomPhoto}
                         />
+                        <GoogleOAuth />
                     </NavigationList>
-                    <GoogleOAuth />
                 </Header>
                 <main className={classes.Layout}>{this.props.children}</main>
             </React.Fragment>
@@ -38,6 +42,7 @@ class Layout extends React.Component {
 const mapStateToProps = (state) => {
     return {
         sidebar: state.ui.sidebar,
+        auth: state.auth,
     };
 };
 const mapDispatchToProps = {

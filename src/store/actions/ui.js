@@ -31,3 +31,11 @@ export const showLoading = () => {
 export const hideLoading = () => {
     return { type: actionTypes.HIDE_LOADING };
 };
+
+export const showSidebar = () => {
+    return { type: actionTypes.SHOW_SIDEBAR };
+};
+
+export const hideSidebar = () => {
+    return { type: actionTypes.HIDE_SIDEBAR };
+};

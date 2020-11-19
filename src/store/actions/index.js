@@ -10,5 +10,7 @@ export {
     showError,
     fetchRequest,
     finishRequest,
+    showSidebar,
+    hideSidebar,
 } from "./ui";
 export { signIn, signOut } from "./auth";

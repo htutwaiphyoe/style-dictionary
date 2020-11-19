@@ -6,6 +6,7 @@ const initialState = {
     list: null,
     isRequested: false,
     page: 1,
+    sidebar: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -26,6 +27,10 @@ const reducer = (state = initialState, action) => {
             return updateObject(state, { page: state.page + 1 });
         case actionTypes.RESET_PAGE:
             return updateObject(state, { page: 1 });
+        case actionTypes.SHOW_SIDEBAR:
+            return updateObject(state, { sidebar: true });
+        case actionTypes.HIDE_SIDEBAR:
+            return updateObject(state, { sidebar: false });
         default:
             return state;
     }

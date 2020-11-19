@@ -16,8 +16,8 @@ class Layout extends React.Component {
         return (
             <React.Fragment>
                 <Header>
-                    <Sidebar />
-                    <HumburgerIcon />
+                    <Sidebar sidebar={this.props.sidebar} hideSidebar={this.props.hideSidebar} />
+                    <HumburgerIcon showSidebar={this.props.showSidebar} />
                     <Logo />
                     <SearchBar />
                     <NavigationList>
@@ -35,7 +35,14 @@ class Layout extends React.Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        sidebar: state.ui.sidebar,
+    };
+};
 const mapDispatchToProps = {
     fetchRandomPhoto: actionCreators.fetchRandomPhoto,
+    showSidebar: actionCreators.showSidebar,
+    hideSidebar: actionCreators.hideSidebar,
 };
-export default connect(null, mapDispatchToProps)(Layout);
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

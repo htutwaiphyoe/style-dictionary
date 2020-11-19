@@ -1,0 +1,13 @@
+.HumburgerIcon {
+    display: none;
+    cursor: pointer;
+}
+/* .HumburgerIcon i {
+    width: 5rem !important;
+} */
+
+@media only screen and (max-width: 576px) {
+    .HumburgerIcon {
+        display: block;
+    }
+}

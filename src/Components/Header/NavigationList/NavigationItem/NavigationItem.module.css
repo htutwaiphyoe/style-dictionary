@@ -9,10 +9,6 @@
     -o-transition: all 0.1s;
     border: 1px solid transparent;
 }
-.show,
-.show1 {
-    display: block;
-}
 .NavigationItem a:link,
 .NavigationItem a:visited {
     color: #111;
@@ -24,14 +20,9 @@
 .NavigationItem a {
     padding: 1rem 0;
 }
-@media only screen and (max-width: 768px) {
-    .show1 {
-        display: none;
-    }
-}
 
 @media only screen and (max-width: 576px) {
-    .show {
+    .NavigationItem {
         display: none;
     }
 }

@@ -6,3 +6,9 @@
 .Logo img {
     width: 100%;
 }
+
+@media only screen and (max-width: 576px) {
+    .Logo {
+        display: none;
+    }
+}

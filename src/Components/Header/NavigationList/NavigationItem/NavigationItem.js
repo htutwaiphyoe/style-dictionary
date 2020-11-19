@@ -11,10 +11,7 @@ const Auth = (props) => {
         }
     };
     return (
-        <div
-            className={`${classes.NavigationItem} ${props.show ? classes.show : classes.show1}`}
-            onClick={clickHandler}
-        >
+        <div className={`${classes.NavigationItem}`} onClick={clickHandler}>
             <Link to={props.route}>{props.type}</Link>
         </div>
     );

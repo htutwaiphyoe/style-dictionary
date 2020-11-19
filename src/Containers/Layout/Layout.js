@@ -8,12 +8,14 @@ import NavigationList from "../../Components/Header/NavigationList/NavigationLis
 import NavigationItem from "../../Components/Header/NavigationList/NavigationItem/NavigationItem";
 import GoogleOAuth from "../../Containers/GoogleOAuth/GoogleOAuth";
 import classes from "./Layout.module.css";
+import HumburgerIcon from "../../Components/Header/HumburgerIcon/HumburgerIcon";
 import * as actionCreators from "../../store/actions";
 class Layout extends React.Component {
     render() {
         return (
             <React.Fragment>
                 <Header>
+                    <HumburgerIcon />
                     <Logo />
                     <SearchBar />
                     <NavigationList>

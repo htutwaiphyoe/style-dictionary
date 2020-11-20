@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./PhotoDetail.module.css";
 const PhotoDetail = (props) => {
+    console.log(props);
     return (
         <section className={classes.PhotoDetail}>
             <div className={classes.Detail}>
@@ -13,7 +14,7 @@ const PhotoDetail = (props) => {
                         />
                     </div>
                     <div className={classes.ProfileName}>
-                        <h2>{props.photo.user.name}</h2>
+                        <h2>{props.photo.user.first_name}</h2>
                         <h6>@{props.photo.user.username}</h6>
                     </div>
                 </div>
@@ -38,13 +39,11 @@ const PhotoDetail = (props) => {
                             title="Download photo"
                             href={`https://unsplash.com/photos/${props.photo.id}/download?force=true&w=2400`}
                             download=""
-                            target="_blank"
-                            rel="noopener noreferrer"
                         >
                             Download
                         </a>
                     ) : (
-                        `Sign In to Download`
+                        <p>Sign In to Download</p>
                     )}
                 </div>
             </div>

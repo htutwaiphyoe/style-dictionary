@@ -1,7 +1,5 @@
 .PhotoDetail {
     width: 100%;
-    padding: 2rem 3rem;
-    padding-top: 0;
     color: rgb(114, 114, 114);
 }
 .Detail {
@@ -60,7 +58,7 @@
     -o-border-radius: 0.5rem;
 }
 .StatisticsItem:not(:first-child) {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
 }
 
 .StatisticsItem span {
@@ -83,15 +81,17 @@
 .Download a {
     color: inherit;
 }
-
+/* .Download p{
+    font-size:
+} */
 .PhotoLand {
-    width: 70%;
+    width: 70rem;
 
     margin: 0 auto;
     margin-top: 2rem;
 }
 .PhotoPort {
-    width: 40%;
+    width: 36rem;
 
     margin: 0 auto;
     margin-top: 2rem;
@@ -101,8 +101,8 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .PhotoDetail {
-        padding: 0;
+    .PhotoLand {
+        width: 100%;
     }
 }
 @media only screen and (max-width: 576px) {
@@ -112,5 +112,11 @@
     .Statistics.Mobile {
         display: flex;
         margin-top: 1rem;
+    }
+    .PhotoPort {
+        width: 100%;
+    }
+    .Detail {
+        padding: 0 0.5rem;
     }
 }

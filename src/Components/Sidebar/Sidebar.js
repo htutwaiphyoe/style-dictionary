@@ -10,7 +10,6 @@ const Sidebar = (props) => {
         cssClasses.push(classes.show);
     }
     let { isSignedIn, user } = props.auth;
-
     return (
         <React.Fragment>
             <Backdrop sidebar={props.sidebar} hideSidebar={props.hideSidebar} />
@@ -29,8 +28,7 @@ const Sidebar = (props) => {
                         <NavigationItem
                             route="/photos/random"
                             type="RANDOM"
-                            hideSidebar={props.hideSidebar}
-                            // fetchRandomPhoto={this.props.fetchRandomPhoto}
+                            fetchRandomPhoto={props.fetchRandomPhoto}
                         />
                     </div>
                     <div className={classes.NavItem}>

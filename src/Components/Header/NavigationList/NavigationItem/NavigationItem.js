@@ -5,7 +5,10 @@ import classes from "./NavigationItem.module.css";
 import * as actionCreators from "../../../../store/actions";
 const Auth = (props) => {
     const clickHandler = () => {
-        props.hideSidebar();
+        if (props.sidebar) {
+            props.hideSidebar();
+        }
+
         if (props.fetchRandomPhoto) {
             props.clearRandomPhoto();
             props.fetchRandomPhoto();
@@ -17,7 +20,15 @@ const Auth = (props) => {
         </div>
     );
 };
+
+const mapStateToProps = (state) => {
+    return {
+        sidebar: state.ui.sidebar,
+    };
+};
 const mapDispatchToProps = {
     clearRandomPhoto: actionCreators.clearRandomPhoto,
+    hideSidebar: actionCreators.hideSidebar,
 };
-export default connect(null, mapDispatchToProps)(Auth);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

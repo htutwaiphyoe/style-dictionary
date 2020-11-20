@@ -18,8 +18,9 @@ class Layout extends React.Component {
                 <Header>
                     <Sidebar
                         sidebar={this.props.sidebar}
-                        hideSidebar={this.props.hideSidebar}
                         auth={this.props.auth}
+                        fetchRandomPhoto={this.props.fetchRandomPhoto}
+                        hideSidebar={this.props.hideSidebar}
                     />
                     <HumburgerIcon showSidebar={this.props.showSidebar} />
                     <Logo />

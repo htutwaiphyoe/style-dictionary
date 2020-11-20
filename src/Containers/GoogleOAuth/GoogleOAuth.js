@@ -37,6 +37,7 @@ class GoogleOAuth extends React.Component {
     };
     onSignOutClick = () => {
         this.auth.signOut();
+        // this.props.hideSidebar();
     };
     onClickHandler = () => {
         if (this.props.isSignedIn) {
@@ -71,5 +72,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     signIn: actionCreators.signIn,
     signOut: actionCreators.signOut,
+    hideSidebar: actionCreators.hideSidebar,
 };
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleOAuth);

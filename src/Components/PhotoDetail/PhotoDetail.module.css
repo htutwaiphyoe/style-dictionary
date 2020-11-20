@@ -8,13 +8,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 0 1rem 0;
 }
 .Profile {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .ProfileImageBox {
     width: 3.2rem;
     height: 3.2rem;
@@ -43,6 +43,9 @@
     justify-content: center;
     align-items: center;
 }
+.Statistics.Mobile {
+    display: none;
+}
 .StatisticsItem {
     padding: 0.5rem 1.1rem;
     border: 1px solid #d1d1d1;
@@ -56,6 +59,10 @@
     -ms-border-radius: 0.5rem;
     -o-border-radius: 0.5rem;
 }
+.StatisticsItem:not(:first-child) {
+    margin-left: 1rem;
+}
+
 .StatisticsItem span {
     margin-left: 0.2rem;
     font-size: 1.5rem;
@@ -91,4 +98,19 @@
 }
 .Photo {
     width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    .PhotoDetail {
+        padding: 0;
+    }
+}
+@media only screen and (max-width: 576px) {
+    .Statistics {
+        display: none;
+    }
+    .Statistics.Mobile {
+        display: flex;
+        margin-top: 1rem;
+    }
 }

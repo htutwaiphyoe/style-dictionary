@@ -17,6 +17,7 @@ const PhotoDetail = (props) => {
                         <h6>@{props.photo.user.username}</h6>
                     </div>
                 </div>
+
                 <div className={classes.Statistics}>
                     <div className={classes.StatisticsItem}>
                         <ion-icon name="heart"></ion-icon>
@@ -45,6 +46,20 @@ const PhotoDetail = (props) => {
                     ) : (
                         `Sign In to Download`
                     )}
+                </div>
+            </div>
+            <div className={`${classes.Statistics} ${classes.Mobile}`}>
+                <div className={classes.StatisticsItem}>
+                    <ion-icon name="heart"></ion-icon>
+                    <span>{props.photo.likes}</span>
+                </div>
+                <div className={classes.StatisticsItem}>
+                    <ion-icon name="eye"></ion-icon>
+                    <span>{props.photo.views}</span>
+                </div>
+                <div className={classes.StatisticsItem}>
+                    <ion-icon name="arrow-down-circle"></ion-icon>
+                    <span>{props.photo.downloads}</span>
                 </div>
             </div>
             <div

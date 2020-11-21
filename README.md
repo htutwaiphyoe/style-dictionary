@@ -2,7 +2,7 @@
 
 ## Photo Library Application Powered By Unsplash API
 
-See in action [Photify](https://hwpphotify.netlify.app/)
+See in action [Photify](https://photify.web.app)
 
 ### Technologies
 

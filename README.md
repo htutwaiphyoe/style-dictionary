@@ -12,6 +12,7 @@ See in action [Photify](https://photify.web.app)
 -   React-Redux
 -   Redux-thunk
 -   Google OAuth
+-   firebase
 
 ### Features
 
@@ -23,4 +24,5 @@ See in action [Photify](https://photify.web.app)
 -   Lists of search photos with a particular query or words
 -   Details of selected photo
 -   Random photo
--   Responsive
+-   Responsive web design
+-   PWA support

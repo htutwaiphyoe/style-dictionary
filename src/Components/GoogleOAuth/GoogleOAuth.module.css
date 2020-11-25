@@ -1,0 +1,14 @@
+.GoogleOAuth {
+    background-color: #eee;
+    margin-left: 1rem;
+    padding: 1rem;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.GoogleOAuth ion-icon {
+    color: rgb(76, 76, 223);
+    font-size: 2rem;
+    padding: 0 0.2rem;
+}

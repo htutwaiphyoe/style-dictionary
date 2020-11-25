@@ -1,0 +1,94 @@
+.PhotoDetail {
+    width: 100%;
+    margin-top: 6.2rem;
+    padding: 2rem 3rem;
+    color: #444;
+}
+.Detail {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1rem 0;
+}
+.Profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ProfileImageBox {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 10rem;
+}
+.ProfileImage {
+    border-radius: 10rem;
+}
+.ProfileName {
+    padding: 0 1rem;
+}
+.Profile h2 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.Profile h6 {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+.Statistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.StatisticsItem {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid #d1d1d1;
+    display: flex;
+    font-size: 2.2rem;
+
+    align-items: center;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+}
+.StatisticsItem span {
+    margin-left: 0.2rem;
+    font-size: 1.5rem;
+}
+.Download {
+    padding: 0.5rem 1.1rem;
+    border: 1px solid #d1d1d1;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -ms-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+    cursor: pointer;
+}
+.Download:hover {
+    border: 1px solid #111;
+}
+.Download a {
+    color: inherit;
+}
+
+.PhotoLand {
+    width: 70%;
+
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+.PhotoPort {
+    width: 40%;
+
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+.Photo {
+    width: 100%;
+}

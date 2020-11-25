@@ -13,7 +13,7 @@ export const getPhotos = (page) => async (dispatch) => {
                 page,
             },
         });
-
+        response.data.page = page;
         dispatch({ type: "LOAD_PHOTOS", payload: response.data });
         dispatch(finishRequest());
     } catch (e) {
@@ -38,6 +38,15 @@ export const searchPhotos = (page, query) => async (dispatch) => {
 
         dispatch({ type: "LOAD_PHOTOS", payload: response.data.results });
         dispatch(finishRequest());
+    } catch (e) {
+        dispatch(showError());
+    }
+};
+export const getPhoto = (id) => async (dispatch) => {
+    try {
+        const response = await unsplash.get(`/photos/${id}`);
+
+        dispatch({ type: "LOAD_PHOTO", payload: response.data });
     } catch (e) {
         dispatch(showError());
     }

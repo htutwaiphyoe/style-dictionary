@@ -1,0 +1,25 @@
+.resolved_map-theme {
+  --color-brand-color-primary: #1677ff;
+  --color-brand-color-primary-hover: #4096ff;
+  --color-error-color-error: #ff4d4f;
+  --color-error-color-error-hover: #ff7875;
+  --color-text-color-text: #1f1f1f;
+  --color-text-color-text-secondary: #595959;
+  --color-text-color-text-light-solid: #ffffff;
+  --color-text-color-primary-text: #1677ff;
+  --color-text-color-primary-text-hover: #4096ff;
+  --color-text-color-error-text: #ff4d4f;
+  --color-text-color-error-text-hover: #ff7875;
+  --color-border-color-border: #d9d9d9;
+  --color-border-color-primary-border-hover: #69b1ff;
+  --color-border-color-error-border: #ff4d4f;
+  --color-border-color-error-border-hover: #ffa39e;
+  --color-bg-color-bg-container: #ffffff;
+  --space-padding-padding-xxs: 4px;
+  --space-padding-padding-xs: 8px;
+  --space-padding-padding-sm: 12px;
+  --space-padding-padding: 16px;
+  --space-padding-padding-md: 20px;
+  --border-radius-border-radius-xxs: 4px;
+  --border-radius-border-radius-xs: 8px;
+}

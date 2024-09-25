@@ -1,0 +1,151 @@
+{
+  "Color": {
+    "Brand": {
+      "colorPrimary": {
+        "value": "{Color.Base.Blue.6}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorPrimaryHover": {
+        "value": "{Color.Base.Blue.5}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      }
+    },
+    "Error": {
+      "colorError": {
+        "value": "{Color.Base.Red.5}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorErrorHover": {
+        "value": "{Color.Base.Red.4}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      }
+    },
+    "Text": {
+      "colorText": {
+        "value": "{Color.Netural.11}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorTextSecondary": {
+        "value": "{Color.Netural.8}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorTextLightSolid": {
+        "value": "{Color.Netural.1}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorPrimaryText": {
+        "value": "{Color.Base.Blue.6}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorPrimaryTextHover": {
+        "value": "{Color.Base.Blue.5}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorErrorText": {
+        "value": "{Color.Base.Red.5}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorErrorTextHover": {
+        "value": "{Color.Base.Red.4}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      }
+    },
+    "Border": {
+      "colorBorder": {
+        "value": "{Color.Netural.5}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorPrimaryBorderHover": {
+        "value": "{Color.Base.Blue.4}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorErrorBorder": {
+        "value": "{Color.Base.Red.5}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      },
+      "colorErrorBorderHover": {
+        "value": "{Color.Base.Red.3}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      }
+    },
+    "Bg": {
+      "colorBgContainer": {
+        "value": "{Color.Netural.1}",
+        "type": "color",
+        "parent": "Map Tokens/Demo Project",
+        "description": ""
+      }
+    }
+  },
+  "Space": {
+    "Padding": {
+      "paddingXXS": {
+        "value": "{Size.Base.sizeXXS}",
+        "type": "number",
+        "parent": "Map Tokens/Demo Project"
+      },
+      "paddingXS": {
+        "value": "{Size.Base.sizeXS}",
+        "type": "number",
+        "parent": "Map Tokens/Demo Project"
+      },
+      "paddingSM": {
+        "value": "{Size.Base.sizeSM}",
+        "type": "number",
+        "parent": "Map Tokens/Demo Project"
+      },
+      "padding": {
+        "value": "{Size.Base.size}",
+        "type": "number",
+        "parent": "Map Tokens/Demo Project"
+      },
+      "paddingMD": {
+        "value": "{Size.Base.sizeMD}",
+        "type": "number",
+        "parent": "Map Tokens/Demo Project"
+      }
+    }
+  },
+  "Border Radius": {
+    "borderRadiusXXS": {
+      "value": "{Size.Base.sizeXXS}",
+      "type": "number",
+      "parent": "Map Tokens/Demo Project"
+    },
+    "borderRadiusXS": {
+      "value": "{Size.Base.sizeXS}",
+      "type": "number",
+      "parent": "Map Tokens/Demo Project"
+    }
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "Color": {
+    "Base": {
+      "Blue": {
+        "4": {
+          "value": "#69b1ff",
+          "type": "color",
+          "parent": "Seed Tokens/Demo Project",
+          "description": ""
+        },
+        "5": {
+          "value": "#4096ff",
+          "type": "color",
+          "parent": "Seed Tokens/Demo Project",
+          "description": ""
+        },
+        "6": {
+          "value": "#1677ff",
+          "type": "color",
+          "parent": "Seed Tokens/Demo Project",
+          "description": ""
+        }
+      },
+      "Red": {
+        "2": {
+          "value": "#ffccc7",
+          "type": "color",
+          "parent": "Seed Tokens/Demo Project",
+          "description": ""
+        },
+        "3": {
+          "value": "#ffa39e",
+          "type": "color",
+          "parent": "Seed Tokens/Demo Project",
+          "description": ""
+        },
+        "4": {
+          "value": "#ff7875",
+          "type": "color",
+          "parent": "Seed Tokens/Demo Project",
+          "description": ""
+        },
+        "5": {
+          "value": "#ff4d4f",
+          "type": "color",
+          "parent": "Seed Tokens/Demo Project",
+          "description": ""
+        }
+      }
+    },
+    "Netural": {
+      "1": {
+        "value": "#ffffff",
+        "type": "color",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      },
+      "5": {
+        "value": "#d9d9d9",
+        "type": "color",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      },
+      "8": {
+        "value": "#595959",
+        "type": "color",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      },
+      "11": {
+        "value": "#1f1f1f",
+        "type": "color",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      }
+    }
+  },
+  "Size": {
+    "Base": {
+      "sizeXXS": {
+        "value": "4",
+        "type": "number",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      },
+      "sizeXS": {
+        "value": "8",
+        "type": "number",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      },
+      "sizeSM": {
+        "value": "12",
+        "type": "number",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      },
+      "size": {
+        "value": "16",
+        "type": "number",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      },
+      "sizeMD": {
+        "value": "20",
+        "type": "number",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      },
+      "sizeLG": {
+        "value": "24",
+        "type": "number",
+        "parent": "Seed Tokens/Demo Project",
+        "description": ""
+      }
+    }
+  }
+}
